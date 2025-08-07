@@ -103,6 +103,6 @@ const TestimonialsSection = () => {
     return normalizedOffset + cardCenter - containerCenter;
   };
   const currentTestimonial = testimonials[currentIndex];
-  return;
+  return null;
 };
 export default TestimonialsSection;

@@ -27,6 +27,6 @@ const FeaturedProjectsSection = () => {
     name: "Verdra",
     image: "/lovable-uploads/9403f89d-dc07-4367-9b52-57b47f8a07ac.png"
   }];
-  return;
+  return null;
 };
 export default FeaturedProjectsSection;

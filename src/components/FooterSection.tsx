@@ -11,11 +11,11 @@ const FooterSection = () => {
   ];
 
   const socialLinks = [
-    'Behance',
-    'Dribbble',
-    'Instagram',
-    'LinkedIn',
-    'X'
+    { label: 'Behance', href: '#' },
+    { label: 'Dribbble', href: '#' },
+    { label: 'Instagram', href: '#' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oscarlt' },
+    { label: 'X', href: 'https://x.com/oscarsuiza' }
   ];
 
   return (
@@ -25,7 +25,7 @@ const FooterSection = () => {
           {/* Left Column - Logo & Tagline */}
           <div className="animate-fade-in">
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-heading text-foreground mb-2">
-              Ethan
+              Oscar
             </h3>
             <p className="text-base md:text-lg font-body text-muted-foreground">
               Design + Strategy
@@ -54,10 +54,11 @@ const FooterSection = () => {
               {socialLinks.map((link, index) => (
                 <div key={index}>
                   <a 
-                    href="#" 
+                    href={link.href}
                     className="block font-body text-base md:text-lg text-foreground hover:text-primary transition-colors duration-300"
+                    aria-label={link.label}
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </div>
               ))}
@@ -69,10 +70,10 @@ const FooterSection = () => {
         <div className="mt-16 pt-8 animate-fade-in" style={{ animationDelay: '300ms' }}>
           <div className="space-y-2">
             <p className="font-body text-base text-muted-foreground">
-              inquiry@darenmonclair.com
+              oscarlt@me.com
             </p>
             <p className="font-body text-base text-muted-foreground">
-              +1 555 257 4068
+              +41 77 266 34 48
             </p>
           </div>
         </div>

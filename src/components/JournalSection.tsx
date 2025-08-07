@@ -15,6 +15,6 @@ const blogPosts = [{
   title: "Finding fresh perspectives beyond the usual design platforms"
 }];
 const JournalSection = () => {
-  return;
+  return null;
 };
 export default JournalSection;

@@ -10,6 +10,6 @@ const ServicesSection = () => {
     description: "Design that tells your story & grabs attention. Create visuals that work across platforms from pitch decks, campaigns, social content, and more.",
     type: "filled"
   }];
-  return;
+  return null;
 };
 export default ServicesSection;

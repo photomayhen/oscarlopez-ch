@@ -26,12 +26,12 @@ const HeroSection = () => {
         <div className={`text-center transition-all duration-700 delay-300 transform -mt-20 relative z-10 pt-[600px] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           {/* Main Heading */}
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-6 leading-tight">
-            Ethan Cole
+            Oscar Lopez
           </h1>
           
           {/* Subtitle */}
           <p className="font-body text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl">
-            Front-end developer turning ideas into interactive, user-focused digital experiences.
+            Procurement, Vendor Management, Contract negotiation & Contract Management
           </p>
         </div>
       </div>
