@@ -36,17 +36,19 @@ const CompaniesSection = () => {
     >
       <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
+        {/* Panorama Reveal */}
+        <PanoramaReveal />
+
+        {/* Heading (moved below the photo) */}
         <div 
           className={`transition-all duration-700 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <h2 className="font-body text-sm md:text-base text-muted-foreground uppercase tracking-wider mb-12">
+          <h2 className="font-body text-sm md:text-base text-muted-foreground uppercase tracking-wider my-8">
             Trusted by leading companies worldwide
           </h2>
         </div>
-        {/* Panorama Reveal */}
-        <PanoramaReveal />
 
         {/* Companies Grid */}
         <div 

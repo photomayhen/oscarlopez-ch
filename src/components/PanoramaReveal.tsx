@@ -5,6 +5,7 @@ const IMG_SRC = "/lovable-uploads/406e6f27-f9e9-4cfa-ab7f-2cd65373c358.png";
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
 const CM_IN_PX = 96 / 2.54;
 const END_GUTTER_PX = CM_IN_PX * 2; // keep window ~2cm from the right edge at the end
+const PROGRESS_SPEED = 1.9; // move the window faster so it reaches the end earlier
 
 const PanoramaReveal: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,7 +50,8 @@ useEffect(() => {
       const secRect = container.getBoundingClientRect();
       const total = secRect.height + window.innerHeight;
       const passed = window.innerHeight - secRect.top;
-      const progress = clamp(passed / total, 0, 1);
+      const base = clamp(passed / total, 0, 1);
+      const progress = clamp(base * PROGRESS_SPEED, 0, 1);
 
       const innerRect = innerRef.current.getBoundingClientRect();
       const square = containerH; // window side equals rendered image height
