@@ -20,6 +20,8 @@ const ranges: Range[] = [
   { label: "IBM", start: 1994, end: 1996 },
 ];
 
+const LABEL_SCALE_BOOST: Record<string, number> = { Vodafone: 1.12 };
+
 const YEARS_START = 2025;
 const YEARS_END = 1994;
 
@@ -176,7 +178,7 @@ const TimelineSection: React.FC = () => {
           }
         });
 
-        ranges.forEach((_, i) => {
+        ranges.forEach((r, i) => {
           const label = rangeRefs.current[i];
           if (!label) return;
 
@@ -198,6 +200,8 @@ const TimelineSection: React.FC = () => {
 
           const scaleFactor = factor * factor;
           const scale = minScale + (maxScale - minScale) * scaleFactor;
+          const boost = LABEL_SCALE_BOOST[r.label] ?? 1;
+          const scaleAdj = Math.min(scale * boost, 2.5);
 
           const opacityFactor = Math.pow(factor, 1.5);
           const opacity = minOpacity + (maxOpacity - minOpacity) * opacityFactor;
@@ -205,9 +209,9 @@ const TimelineSection: React.FC = () => {
           const isActive = i === activeRangeIdx;
 
           if (!prefersReduced) {
-            label.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(3)})`;
+            label.style.transform = `translate(-50%, -50%) scale(${scaleAdj.toFixed(3)})`;
             label.style.opacity = opacity.toFixed(3);
-            label.style.fontWeight = isActive ? "900" : scale > 1.4 ? "700" : scale > 1.0 ? "600" : "400";
+            label.style.fontWeight = isActive ? "900" : scaleAdj > 1.4 ? "700" : scaleAdj > 1.0 ? "600" : "400";
             const drop = isActive
               ? `drop-shadow(0 0 32px hsl(var(--foreground) / 0.5))`
               : `drop-shadow(0 0 ${Math.round(20 * factor)}px hsl(var(--foreground) / ${0.3 * factor}))`;
