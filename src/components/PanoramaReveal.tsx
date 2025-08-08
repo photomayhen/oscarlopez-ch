@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const IMG_SRC = "/lovable-uploads/9422e35b-3f49-4eb1-9128-25836be52860.png";
+const IMG_SRC = "/lovable-uploads/406e6f27-f9e9-4cfa-ab7f-2cd65373c358.png";
 
 const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
+const CM_IN_PX = 96 / 2.54;
+const END_GUTTER_PX = CM_IN_PX * 2; // keep window ~2cm from the right edge at the end
 
 const PanoramaReveal: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,23 +12,33 @@ const PanoramaReveal: React.FC = () => {
   const colorLayerRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
 
-  const [squareSize, setSquareSize] = useState(220);
+  const [aspect, setAspect] = useState<number | null>(null);
+  const [containerH, setContainerH] = useState<number>(300);
 
+  // Load image to determine its natural aspect ratio
   useEffect(() => {
-    const handleResize = () => {
-      const inner = innerRef.current;
-      if (!inner) return;
-      const r = inner.getBoundingClientRect();
-      const size = Math.min(Math.max(r.height * 0.6, 160), 360); // responsive square
-      setSquareSize(size);
+    const img = new Image();
+    img.src = IMG_SRC;
+    img.onload = () => {
+      if (img.naturalWidth && img.naturalHeight) {
+        setAspect(img.naturalHeight / img.naturalWidth);
+      }
     };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Recompute container height from available width and aspect
   useEffect(() => {
+    const compute = () => {
+      if (!innerRef.current || !aspect) return;
+      const w = innerRef.current.getBoundingClientRect().width;
+      setContainerH(w * aspect);
+    };
+    compute();
+    window.addEventListener("resize", compute);
+    return () => window.removeEventListener("resize", compute);
+  }, [aspect]);
+
+useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const container = containerRef.current;
 
@@ -40,18 +52,17 @@ const PanoramaReveal: React.FC = () => {
       const progress = clamp(passed / total, 0, 1);
 
       const innerRect = innerRef.current.getBoundingClientRect();
-      const availableX = Math.max(innerRect.width - squareSize, 0);
-      const x = availableX * progress;
-      const y = Math.max((innerRect.height - squareSize) / 2, 0);
+      const square = containerH; // window side equals rendered image height
+      const maxLeft = Math.max(innerRect.width - square - END_GUTTER_PX, 0);
+      const left = maxLeft * progress;
+      const right = Math.max(innerRect.width - left - square, 0);
 
-      const left = x;
-      const right = Math.max(innerRect.width - x - squareSize, 0);
-      const bottom = Math.max(innerRect.height - y - squareSize, 0);
+      // Reveal full height
+      colorLayerRef.current.style.clipPath = `inset(0px ${right}px 0px ${left}px)`;
 
-      colorLayerRef.current.style.clipPath = `inset(${y}px ${right}px ${bottom}px ${left}px)`;
-      frameRef.current.style.transform = `translate(${left}px, ${y}px)`;
-      frameRef.current.style.width = `${squareSize}px`;
-      frameRef.current.style.height = `${squareSize}px`;
+      frameRef.current.style.transform = `translate(${left}px, 0px)`;
+      frameRef.current.style.width = `${square}px`;
+      frameRef.current.style.height = `${square}px`;
     };
 
     const onScroll = () => {
@@ -69,30 +80,34 @@ const PanoramaReveal: React.FC = () => {
       window.removeEventListener("resize", update);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [squareSize]);
+  }, [containerH]);
 
-  return (
+return (
     <section aria-label="Panoramic photo reveal" className="relative w-full my-10">
       <div
         ref={containerRef}
-        className="relative h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] bg-background overflow-hidden rounded-sm shadow"
+        className="relative bg-background overflow-hidden rounded-sm shadow"
+        style={{ height: containerH || undefined }}
       >
         {/* Inner area with fixed black gutters (1cm each side) */}
         <div ref={innerRef} className="absolute inset-y-0" style={{ left: "1cm", right: "1cm" }}>
-          {/* Desaturated, dark background image */}
-          <div
+          {/* Desaturated, dark background image (full width, full image visible) */}
+          <img
             aria-hidden
-            className="absolute inset-0 bg-center bg-cover grayscale brightness-50"
-            style={{ backgroundImage: `url(${IMG_SRC})` }}
+            src={IMG_SRC}
+            alt=""
+            className="absolute inset-0 w-full h-full object-contain object-left grayscale brightness-50"
           />
 
-          {/* Color layer, revealed through a moving square clip */}
+          {/* Color layer, revealed through a moving square clip that spans full height */}
           <div
             ref={colorLayerRef}
             aria-hidden
-            className="absolute inset-0 bg-center bg-cover"
-            style={{ backgroundImage: `url(${IMG_SRC})`, clipPath: "inset(0 100% 100% 0)" }}
-          />
+            className="absolute inset-0"
+            style={{ clipPath: "inset(0 100% 0 0)" }}
+          >
+            <img src={IMG_SRC} alt="" className="absolute inset-0 w-full h-full object-contain object-left" />
+          </div>
 
           {/* Visible window frame */}
           <div
@@ -105,7 +120,7 @@ const PanoramaReveal: React.FC = () => {
         {/* Accessibility + SEO: hidden img for alt text and lazy loading */}
         <img
           src={IMG_SRC}
-          alt="Panoramic lakeside scene with modern sculpture and a person in a suit"
+          alt="Vibrant panoramic lakeside scene with modern sculpture and a person in a suit"
           loading="lazy"
           className="sr-only"
         />
