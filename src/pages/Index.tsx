@@ -10,7 +10,7 @@ import JournalSection from "@/components/JournalSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
-import MetallicBar from "@/components/MetallicBar";
+import HeroMirror from "@/components/HeroMirror";
 
 const Index = () => {
   useEffect(() => {
@@ -47,7 +47,7 @@ const Index = () => {
       <JournalSection />
       <FAQSection />
       <ContactSection />
-      <MetallicBar flipped />
+      <HeroMirror />
       <FooterSection />
     </div>
   );
