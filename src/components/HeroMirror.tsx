@@ -9,7 +9,7 @@ const HeroMirror: React.FC = () => {
         loop
         playsInline
         controls={false}
-        className="absolute inset-0 w-full h-full object-cover mix-blend-color-dodge scale-y-[-1]"
+        className="absolute inset-0 w-full h-full object-cover mix-blend-color-dodge scale-y-[-1] scale-x-[-1]"
       >
         <source src="https://res.cloudinary.com/dqd4dvem7/video/upload/v1753690853/arc_n2w6lv.mp4" type="video/mp4" />
       </video>
