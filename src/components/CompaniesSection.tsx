@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PanoramaReveal from "./PanoramaReveal";
 
 const CompaniesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,6 +45,8 @@ const CompaniesSection = () => {
             Trusted by leading companies worldwide
           </h2>
         </div>
+        {/* Panorama Reveal */}
+        <PanoramaReveal />
 
         {/* Companies Grid */}
         <div 
