@@ -1,3 +1,4 @@
+
 import React, { useEffect, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -13,9 +14,8 @@ const ranges: Range[] = [
   { label: "Qiagen", start: 2012, end: 2015 },
   { label: "Huawei", start: 2011, end: 2011 },
   { label: "Vodafone", start: 2004, end: 2010 },
-  { label: "SONY Ericsson", start: 2003, end: 2003 },
-  { label: "SONY", start: 2001, end: 2002 },
-  { label: "E-Commerce Quality", start: 2000, end: 2000 },
+  { label: "SONY", start: 2001, end: 2003 },
+  { label: "eQuality", start: 2000, end: 2000 },
   { label: "TECDIS", start: 1997, end: 1999 },
   { label: "IBM", start: 1994, end: 1996 },
 ];
@@ -95,11 +95,11 @@ const TimelineSection: React.FC = () => {
 
       if (!rangeCentersRef.current.length) computeLayout();
 
-      const distanceDenominator = 500;
-      const maxScale = 1.9;
-      const minScale = 0.6;
+      const distanceDenominator = 400; // Reduced for sharper transitions
+      const maxScale = 2.2; // Increased max scale
+      const minScale = 0.4; // Reduced min scale for more dramatic effect
       const maxOpacity = 1.0;
-      const minOpacity = 0.05;
+      const minOpacity = 0.02; // Nearly invisible
 
       for (let i = 0; i < years.length; i++) {
         const yearEl = yearRefs.current[i];
@@ -108,21 +108,30 @@ const TimelineSection: React.FC = () => {
         const rect = yearEl.getBoundingClientRect();
         const rowCenter = rect.top + rect.height / 2;
         const distance = Math.abs(rowCenter - viewportCenterY);
-        const norm = Math.min(distance / distanceDenominator, 2);
+        const norm = Math.min(distance / distanceDenominator, 3);
         const factor = Math.max(0, 1 - norm);
 
-        const scale = minScale + (maxScale - minScale) * factor;
-        const opacity = minOpacity + (maxOpacity - minOpacity) * factor;
-        const fontWeight = scale > 1.55 ? 800 : scale > 1.2 ? 700 : 400;
-        const glow = factor > 0.9 ? 0.9 : factor > 0.7 ? 0.5 : factor > 0.4 ? 0.25 : 0;
+        // More dramatic scaling curve
+        const scaleFactor = factor * factor; // Quadratic for sharper falloff
+        const scale = minScale + (maxScale - minScale) * scaleFactor;
+        
+        // More dramatic opacity curve
+        const opacityFactor = Math.pow(factor, 1.5); // Power curve for sharper falloff
+        const opacity = minOpacity + (maxOpacity - minOpacity) * opacityFactor;
+        
+        const fontWeight = scale > 1.8 ? 900 : scale > 1.4 ? 800 : scale > 1.0 ? 700 : scale > 0.7 ? 500 : 300;
+        const glow = factor > 0.85 ? 1.0 : factor > 0.6 ? 0.6 : factor > 0.3 ? 0.2 : 0;
 
         if (!prefersReduced) {
           yearEl.style.transform = `scale(${scale.toFixed(3)}) translateZ(0)`;
           yearEl.style.opacity = opacity.toFixed(3);
           yearEl.style.fontWeight = String(fontWeight);
-          const drop = `drop-shadow(0 0 ${Math.round(20 * glow)}px hsl(var(--foreground) / ${0.45 * glow}))`;
+          const drop = `drop-shadow(0 0 ${Math.round(25 * glow)}px hsl(var(--foreground) / ${0.5 * glow}))`;
           yearEl.style.filter = drop;
-          yearEl.style.color = "hsl(var(--foreground))";
+          
+          // Make focused element nearly white, others progressively darker
+          const brightness = 40 + (60 * opacityFactor); // 40% to 100% brightness
+          yearEl.style.color = `hsl(var(--foreground) / ${Math.max(0.1, opacity)})`;
         } else {
           yearEl.style.transform = "none";
           yearEl.style.filter = "none";
@@ -137,21 +146,29 @@ const TimelineSection: React.FC = () => {
           const mid = rangeCentersRef.current[i] ?? 0;
           const viewportY = listRect.top + mid;
           const distance = Math.abs(viewportY - viewportCenterY);
-          const norm = Math.min(distance / distanceDenominator, 2);
+          const norm = Math.min(distance / distanceDenominator, 3);
           const factor = Math.max(0, 1 - norm);
 
-          const scale = minScale + (maxScale - minScale) * factor;
-          const opacity = minOpacity + (maxOpacity - minOpacity) * factor;
-          const fontWeight = scale > 1.55 ? 800 : scale > 1.2 ? 700 : 400;
-          const glow = factor > 0.9 ? 0.9 : factor > 0.7 ? 0.5 : factor > 0.4 ? 0.25 : 0;
+          // More dramatic scaling curve
+          const scaleFactor = factor * factor;
+          const scale = minScale + (maxScale - minScale) * scaleFactor;
+          
+          // More dramatic opacity curve
+          const opacityFactor = Math.pow(factor, 1.5);
+          const opacity = minOpacity + (maxOpacity - minOpacity) * opacityFactor;
+          
+          const fontWeight = scale > 1.8 ? 900 : scale > 1.4 ? 800 : scale > 1.0 ? 700 : scale > 0.7 ? 500 : 300;
+          const glow = factor > 0.85 ? 1.0 : factor > 0.6 ? 0.6 : factor > 0.3 ? 0.2 : 0;
 
           if (!prefersReduced) {
             label.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(3)})`;
             label.style.opacity = opacity.toFixed(3);
             label.style.fontWeight = String(fontWeight);
-            const drop = `drop-shadow(0 0 ${Math.round(20 * glow)}px hsl(var(--foreground) / ${0.45 * glow}))`;
+            const drop = `drop-shadow(0 0 ${Math.round(25 * glow)}px hsl(var(--foreground) / ${0.5 * glow}))`;
             label.style.filter = drop;
-            label.style.color = "hsl(var(--foreground))";
+            
+            // Make focused element nearly white, others progressively darker
+            label.style.color = `hsl(var(--foreground) / ${Math.max(0.1, opacity)})`;
           } else {
             label.style.transform = "translate(-50%, -50%)";
             label.style.filter = "none";
@@ -272,26 +289,35 @@ const TimelineSection: React.FC = () => {
             </ul>
           </div>
 
-          {/* Center Column: Metallic Bar */}
+          {/* Center Column: Metallic Bar with Blue Atmospheric Glow */}
           <div className="hidden md:flex items-stretch justify-center md:col-start-2 md:col-span-1">
             <div
               aria-hidden
               className="relative w-8 md:w-12 rounded-full my-2"
               style={{
-                // Chrome/silver gradient with blue-white atmospheric glow (HSL values)
+                // Enhanced chrome/silver gradient with blue atmospheric tones
                 background:
-                  "linear-gradient(180deg, hsl(210 10% 90%) 0%, hsl(210 5% 60%) 40%, hsl(210 3% 40%) 60%, hsl(210 10% 85%) 100%)",
+                  "linear-gradient(180deg, hsl(210 15% 92%) 0%, hsl(210 20% 85%) 10%, hsl(210 8% 65%) 40%, hsl(210 5% 45%) 60%, hsl(210 12% 88%) 90%, hsl(210 18% 95%) 100%)",
                 boxShadow:
-                  "0 0 24px hsl(210 100% 85% / 0.25), inset 0 1px 1px hsl(210 40% 98% / 0.35), inset 0 -1px 1px hsl(210 10% 30% / 0.35)",
+                  "0 0 30px hsl(210 100% 88% / 0.3), inset 0 2px 2px hsl(210 50% 98% / 0.4), inset 0 -2px 2px hsl(210 15% 35% / 0.4), 0 0 60px hsl(210 80% 85% / 0.15)",
               }}
             >
-              {/* Subtle atmospheric glow ring */}
+              {/* Enhanced atmospheric blue glow ring */}
               <div
                 className="pointer-events-none absolute -inset-4 rounded-[2rem]"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, hsl(210 100% 90% / 0.15), transparent 60%)",
-                  filter: "blur(8px)",
+                    "radial-gradient(ellipse at center, hsl(210 100% 92% / 0.2) 0%, hsl(210 80% 88% / 0.1) 30%, transparent 70%)",
+                  filter: "blur(12px)",
+                }}
+              />
+              
+              {/* Additional subtle inner blue glow */}
+              <div
+                className="pointer-events-none absolute inset-1 rounded-full"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 0%, hsl(210 60% 90% / 0.1) 30%, hsl(210 40% 85% / 0.05) 70%, transparent 100%)",
                 }}
               />
             </div>
