@@ -31,7 +31,7 @@ const HeroSection = () => {
           
           {/* Subtitle */}
           <p className="font-body text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl">
-            Procurement, Vendor Management, Contract negotiation & Contract Management
+            Procurement, Vendor Management, Contract Negotiation & Contract Management
           </p>
         </div>
       </div>
