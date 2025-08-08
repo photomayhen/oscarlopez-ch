@@ -11,9 +11,6 @@ const FooterSection = () => {
   ];
 
   const socialLinks = [
-    { label: 'Behance', href: '#' },
-    { label: 'Dribbble', href: '#' },
-    { label: 'Instagram', href: '#' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oscarlt' },
     { label: 'X', href: 'https://x.com/oscarsuiza' }
   ];
@@ -28,7 +25,7 @@ const FooterSection = () => {
               Oscar
             </h3>
             <p className="text-base md:text-lg font-body text-muted-foreground">
-              Design + Strategy
+              Procurement Excellence
             </p>
           </div>
 
