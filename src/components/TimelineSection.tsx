@@ -297,25 +297,24 @@ const TimelineSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Companies (per-year mapping for synchronized animation) */}
-          <div className="md:col-start-3 md:col-span-1">
-            <ul className="flex flex-col items-center md:items-center gap-2 md:gap-4">
-              {years.map((y, i) => (
-                <li
-                  key={`${y}-company`}
-                  ref={(el) => (companyRefs.current[i] = el)}
-                  className={cn(
-                    "will-change-transform transition-[transform,opacity,filter]",
-                    "duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
-                    "text-foreground/70",
-                    "font-heading text-sm md:text-base tracking-wide select-none"
-                  )}
-                  aria-label={`Company in ${y}: ${getCompanyForYear(y) || "—"}`}
-                >
-                  {getCompanyForYear(y) || "\u2014"}
-                </li>
-              ))}
-            </ul>
+          {/* Right Column: Company Range Labels (single per company) */}
+          <div ref={rightColRef} className="relative md:col-start-3 md:col-span-1">
+            {/* Absolutely positioned labels centered, height set via JS */}
+            {ranges.map((r, i) => (
+              <div
+                key={`${r.label}-${r.start}-${r.end}`}
+                ref={(el) => (rangeRefs.current[i] = el)}
+                className={cn(
+                  "pointer-events-none select-none text-foreground/70",
+                  "will-change-transform transition-[transform,opacity,filter]",
+                  "duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+                  "font-heading text-sm md:text-base tracking-wide"
+                )}
+                aria-label={`${r.label} from ${r.start} to ${r.end}`}
+              >
+                {r.label}
+              </div>
+            ))}
           </div>
         </div>
 
