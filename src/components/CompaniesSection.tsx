@@ -22,10 +22,10 @@ const CompaniesSection = () => {
   }, []);
 
   const companies = [
-    "Google",
-    "Microsoft", 
-    "Netflix",
-    "Spotify"
+    "Huawei",
+    "QIAGEN", 
+    "Vodafone",
+    "SONY"
   ];
 
   return (

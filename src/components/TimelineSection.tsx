@@ -11,7 +11,7 @@ type Range = { label: string; start: number; end: number };
 
 const ranges: Range[] = [
   { label: "Huawei", start: 2016, end: 2025 },
-  { label: "Qiagen", start: 2012, end: 2015 },
+  { label: "QIAGEN", start: 2012, end: 2015 },
   { label: "Huawei", start: 2011, end: 2011 },
   { label: "Vodafone", start: 2004, end: 2010 },
   { label: "SONY", start: 2001, end: 2003 },
@@ -96,14 +96,38 @@ const TimelineSection: React.FC = () => {
       if (!rangeCentersRef.current.length) computeLayout();
 
       const distanceDenominator = 400; // Reduced for sharper transitions
-      const maxScale = 2.2; // Increased max scale
-      const minScale = 0.4; // Reduced min scale for more dramatic effect
+      const maxScale = 2.3; // Increased max scale for stronger focus
+      const minScale = 0.35; // Reduced min scale for more dramatic effect
       const maxOpacity = 1.0;
-      const minOpacity = 0.02; // Nearly invisible
+      const minOpacity = 0.0; // Invisible when far enough
+
+      // Determine the active (focused) year index
+      let activeYearIdx = 0;
+      let minYearDist = Infinity;
+      for (let i = 0; i < years.length; i++) {
+        const el = yearRefs.current[i];
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        const rowCenter = rect.top + rect.height / 2;
+        const d = Math.abs(rowCenter - viewportCenterY);
+        if (d < minYearDist) {
+          minYearDist = d;
+          activeYearIdx = i;
+        }
+      }
 
       for (let i = 0; i < years.length; i++) {
         const yearEl = yearRefs.current[i];
         if (!yearEl) continue;
+
+        // Hard cut-off after 5 items away from focus
+        if (Math.abs(i - activeYearIdx) > 5) {
+          yearEl.style.opacity = "0";
+          yearEl.style.transform = "scale(0.35) translateZ(0)";
+          yearEl.style.color = "hsl(var(--background))";
+          yearEl.style.filter = "none";
+          continue;
+        }
 
         const rect = yearEl.getBoundingClientRect();
         const rowCenter = rect.top + rect.height / 2;
@@ -111,27 +135,25 @@ const TimelineSection: React.FC = () => {
         const norm = Math.min(distance / distanceDenominator, 3);
         const factor = Math.max(0, 1 - norm);
 
-        // More dramatic scaling curve
         const scaleFactor = factor * factor; // Quadratic for sharper falloff
         const scale = minScale + (maxScale - minScale) * scaleFactor;
-        
-        // More dramatic opacity curve
+
         const opacityFactor = Math.pow(factor, 1.5); // Power curve for sharper falloff
         const opacity = minOpacity + (maxOpacity - minOpacity) * opacityFactor;
-        
-        const fontWeight = scale > 1.8 ? 900 : scale > 1.4 ? 800 : scale > 1.0 ? 700 : scale > 0.7 ? 500 : 300;
-        const glow = factor > 0.85 ? 1.0 : factor > 0.6 ? 0.6 : factor > 0.3 ? 0.2 : 0;
+
+        const isActive = i === activeYearIdx;
 
         if (!prefersReduced) {
           yearEl.style.transform = `scale(${scale.toFixed(3)}) translateZ(0)`;
           yearEl.style.opacity = opacity.toFixed(3);
-          yearEl.style.fontWeight = String(fontWeight);
-          const drop = `drop-shadow(0 0 ${Math.round(25 * glow)}px hsl(var(--foreground) / ${0.5 * glow}))`;
+          yearEl.style.fontWeight = isActive ? "900" : scale > 1.4 ? "700" : scale > 1.0 ? "600" : "400";
+          const drop = isActive
+            ? `drop-shadow(0 0 32px hsl(var(--foreground) / 0.5))`
+            : `drop-shadow(0 0 ${Math.round(20 * factor)}px hsl(var(--foreground) / ${0.3 * factor}))`;
           yearEl.style.filter = drop;
-          
-          // Make focused element nearly white, others progressively darker
-          const brightness = 40 + (60 * opacityFactor); // 40% to 100% brightness
-          yearEl.style.color = `hsl(var(--foreground) / ${Math.max(0.1, opacity)})`;
+          yearEl.style.color = isActive
+            ? `hsl(var(--foreground) / 1)`
+            : `hsl(var(--foreground) / ${Math.max(0.1, opacity)})`;
         } else {
           yearEl.style.transform = "none";
           yearEl.style.filter = "none";
@@ -140,35 +162,59 @@ const TimelineSection: React.FC = () => {
 
       if (yearsList) {
         const listRect = yearsList.getBoundingClientRect();
+
+        // Determine the active (focused) range label index
+        let activeRangeIdx = 0;
+        let minRangeDist = Infinity;
+        ranges.forEach((_, i) => {
+          const mid = rangeCentersRef.current[i] ?? 0;
+          const viewportY = listRect.top + mid;
+          const d = Math.abs(viewportY - viewportCenterY);
+          if (d < minRangeDist) {
+            minRangeDist = d;
+            activeRangeIdx = i;
+          }
+        });
+
         ranges.forEach((_, i) => {
           const label = rangeRefs.current[i];
           if (!label) return;
+
+          // Hard cut-off after 5 items away from focus
+          if (Math.abs(i - activeRangeIdx) > 5) {
+            label.style.opacity = "0";
+            label.style.transform = "translate(-50%, -50%) scale(0.35)";
+            label.style.color = "hsl(var(--background))";
+            label.style.filter = "none";
+            label.style.fontWeight = "300";
+            return;
+          }
+
           const mid = rangeCentersRef.current[i] ?? 0;
           const viewportY = listRect.top + mid;
           const distance = Math.abs(viewportY - viewportCenterY);
           const norm = Math.min(distance / distanceDenominator, 3);
           const factor = Math.max(0, 1 - norm);
 
-          // More dramatic scaling curve
           const scaleFactor = factor * factor;
           const scale = minScale + (maxScale - minScale) * scaleFactor;
-          
-          // More dramatic opacity curve
+
           const opacityFactor = Math.pow(factor, 1.5);
           const opacity = minOpacity + (maxOpacity - minOpacity) * opacityFactor;
-          
-          const fontWeight = scale > 1.8 ? 900 : scale > 1.4 ? 800 : scale > 1.0 ? 700 : scale > 0.7 ? 500 : 300;
-          const glow = factor > 0.85 ? 1.0 : factor > 0.6 ? 0.6 : factor > 0.3 ? 0.2 : 0;
+
+          const isActive = i === activeRangeIdx;
 
           if (!prefersReduced) {
             label.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(3)})`;
             label.style.opacity = opacity.toFixed(3);
-            label.style.fontWeight = String(fontWeight);
-            const drop = `drop-shadow(0 0 ${Math.round(25 * glow)}px hsl(var(--foreground) / ${0.5 * glow}))`;
+            label.style.fontWeight = isActive ? "900" : scale > 1.4 ? "700" : scale > 1.0 ? "600" : "400";
+            const drop = isActive
+              ? `drop-shadow(0 0 32px hsl(var(--foreground) / 0.5))`
+              : `drop-shadow(0 0 ${Math.round(20 * factor)}px hsl(var(--foreground) / ${0.3 * factor}))`;
             label.style.filter = drop;
-            
-            // Make focused element nearly white, others progressively darker
-            label.style.color = `hsl(var(--foreground) / ${Math.max(0.1, opacity)})`;
+            label.style.color = isActive
+              ? `hsl(var(--foreground) / 1)`
+              : `hsl(var(--foreground) / ${Math.max(0.1, opacity)})`;
           } else {
             label.style.transform = "translate(-50%, -50%)";
             label.style.filter = "none";
