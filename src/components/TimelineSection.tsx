@@ -32,8 +32,11 @@ const getCompanyForYear = (year: number) => {
 
 const TimelineSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const yearsListRef = useRef<HTMLUListElement | null>(null);
   const yearRefs = useRef<(HTMLElement | null)[]>([]);
-  const companyRefs = useRef<(HTMLElement | null)[]>([]);
+  const rightColRef = useRef<HTMLDivElement | null>(null);
+  const rangeRefs = useRef<(HTMLElement | null)[]>([]);
+  const rangeCentersRef = useRef<number[]>([]);
 
   const years = useMemo(
     () => Array.from({ length: YEARS_START - YEARS_END + 1 }, (_, i) => YEARS_START - i),
@@ -51,57 +54,111 @@ const TimelineSection: React.FC = () => {
 
     let ticking = false;
 
+    const computeLayout = () => {
+      const yearsList = yearsListRef.current;
+      const rightCol = rightColRef.current;
+      if (!yearsList || !rightCol) return;
+
+      const lastIdx = years.length - 1;
+      const lastEl = yearRefs.current[lastIdx];
+      if (lastEl) {
+        const totalHeight = lastEl.offsetTop + lastEl.offsetHeight;
+        rightCol.style.height = `${totalHeight}px`;
+      }
+
+      rangeCentersRef.current = ranges.map((r) => {
+        const startIdx = years.indexOf(r.start);
+        const endIdx = years.indexOf(r.end);
+        const startEl = yearRefs.current[startIdx];
+        const endEl = yearRefs.current[endIdx];
+        if (!startEl || !endEl) return 0;
+        const startC = startEl.offsetTop + startEl.offsetHeight / 2;
+        const endC = endEl.offsetTop + endEl.offsetHeight / 2;
+        return (startC + endC) / 2;
+      });
+
+      ranges.forEach((_, i) => {
+        const el = rangeRefs.current[i];
+        if (!el) return;
+        const mid = rangeCentersRef.current[i] ?? 0;
+        el.style.position = "absolute";
+        el.style.left = "50%";
+        el.style.top = `${mid}px`;
+        el.style.transform = "translate(-50%, -50%)";
+      });
+    };
+
     const update = () => {
       if (!container) return;
+      const yearsList = yearsListRef.current;
       const viewportCenterY = window.innerHeight / 2;
 
-      // Calculate and apply transforms for each row (year + company)
+      if (!rangeCentersRef.current.length) computeLayout();
+
+      const distanceDenominator = 500;
+      const maxScale = 1.9;
+      const minScale = 0.6;
+      const maxOpacity = 1.0;
+      const minOpacity = 0.05;
+
       for (let i = 0; i < years.length; i++) {
         const yearEl = yearRefs.current[i];
-        const compEl = companyRefs.current[i];
-        if (!yearEl || !compEl) continue;
+        if (!yearEl) continue;
 
         const rect = yearEl.getBoundingClientRect();
         const rowCenter = rect.top + rect.height / 2;
         const distance = Math.abs(rowCenter - viewportCenterY);
+        const norm = Math.min(distance / distanceDenominator, 2);
+        const factor = Math.max(0, 1 - norm);
 
-        // Normalize distance for mapping (0 -> near, >= 800 -> far)
-        const norm = Math.min(distance / 800, 2);
-
-        // Map to scale and opacity smoothly
-        // Near focus: scale ~1.5, opacity 1
-        // Far: scale ~0.6, opacity 0.1
-        const maxScale = 1.5;
-        const minScale = 0.6;
-        const maxOpacity = 1.0;
-        const minOpacity = 0.1;
-
-        const factor = Math.max(0, 1 - norm); // 1 near, 0 far
         const scale = minScale + (maxScale - minScale) * factor;
         const opacity = minOpacity + (maxOpacity - minOpacity) * factor;
-
-        const fontWeight = scale > 1.35 ? 700 : scale > 1.1 ? 600 : 400;
-        const glow = factor > 0.85 ? 0.7 : factor > 0.6 ? 0.4 : factor > 0.3 ? 0.2 : 0;
+        const fontWeight = scale > 1.55 ? 800 : scale > 1.2 ? 700 : 400;
+        const glow = factor > 0.9 ? 0.9 : factor > 0.7 ? 0.5 : factor > 0.4 ? 0.25 : 0;
 
         if (!prefersReduced) {
-          const transform = `scale(${scale.toFixed(3)}) translateZ(0)`; // GPU accelerate
-          yearEl.style.transform = transform;
-          compEl.style.transform = transform;
+          yearEl.style.transform = `scale(${scale.toFixed(3)}) translateZ(0)`;
           yearEl.style.opacity = opacity.toFixed(3);
-          compEl.style.opacity = opacity.toFixed(3);
           yearEl.style.fontWeight = String(fontWeight);
-          compEl.style.fontWeight = String(fontWeight);
-          const drop = `drop-shadow(0 0 ${Math.round(16 * glow)}px hsl(var(--foreground) / ${0.35 * glow}))`;
+          const drop = `drop-shadow(0 0 ${Math.round(20 * glow)}px hsl(var(--foreground) / ${0.45 * glow}))`;
           yearEl.style.filter = drop;
-          compEl.style.filter = drop;
+          yearEl.style.color = "hsl(var(--foreground))";
         } else {
-          // Reduced motion: highlight closest item only (no continuous transforms)
           yearEl.style.transform = "none";
-          compEl.style.transform = "none";
           yearEl.style.filter = "none";
-          compEl.style.filter = "none";
         }
       }
+
+      if (yearsList) {
+        const listRect = yearsList.getBoundingClientRect();
+        ranges.forEach((_, i) => {
+          const label = rangeRefs.current[i];
+          if (!label) return;
+          const mid = rangeCentersRef.current[i] ?? 0;
+          const viewportY = listRect.top + mid;
+          const distance = Math.abs(viewportY - viewportCenterY);
+          const norm = Math.min(distance / distanceDenominator, 2);
+          const factor = Math.max(0, 1 - norm);
+
+          const scale = minScale + (maxScale - minScale) * factor;
+          const opacity = minOpacity + (maxOpacity - minOpacity) * factor;
+          const fontWeight = scale > 1.55 ? 800 : scale > 1.2 ? 700 : 400;
+          const glow = factor > 0.9 ? 0.9 : factor > 0.7 ? 0.5 : factor > 0.4 ? 0.25 : 0;
+
+          if (!prefersReduced) {
+            label.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(3)})`;
+            label.style.opacity = opacity.toFixed(3);
+            label.style.fontWeight = String(fontWeight);
+            const drop = `drop-shadow(0 0 ${Math.round(20 * glow)}px hsl(var(--foreground) / ${0.45 * glow}))`;
+            label.style.filter = drop;
+            label.style.color = "hsl(var(--foreground))";
+          } else {
+            label.style.transform = "translate(-50%, -50%)";
+            label.style.filter = "none";
+          }
+        });
+      }
+
       ticking = false;
     };
 
@@ -112,16 +169,23 @@ const TimelineSection: React.FC = () => {
       }
     };
 
+    const onResize = () => {
+      rangeCentersRef.current = [];
+      computeLayout();
+      onScroll();
+    };
+
     // Observe when section is in view to attach/remove scroll listener
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          computeLayout();
           update();
           window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onScroll);
+          window.addEventListener("resize", onResize);
         } else {
           window.removeEventListener("scroll", onScroll);
-          window.removeEventListener("resize", onScroll);
+          window.removeEventListener("resize", onResize);
         }
       },
       { threshold: 0.1 }
@@ -131,7 +195,7 @@ const TimelineSection: React.FC = () => {
     return () => {
       io.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, [years]);
 
@@ -188,7 +252,7 @@ const TimelineSection: React.FC = () => {
         >
           {/* Left Column: Years */}
           <div className="md:col-start-1 md:col-span-1">
-            <ul className="flex flex-col items-center md:items-center gap-2 md:gap-4">
+            <ul ref={yearsListRef} className="flex flex-col items-center md:items-center gap-2 md:gap-4">
               {years.map((y, i) => (
                 <li
                   key={y}
