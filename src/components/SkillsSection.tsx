@@ -1,0 +1,78 @@
+import { useState } from "react";
+
+const skills = [
+  { id: 1, emoji: "1️⃣", title: "Strategic Thinking", x: 15, y: 20 },
+  { id: 2, emoji: "2️⃣", title: "Data-Driven Decisions", x: 75, y: 15 },
+  { id: 3, emoji: "3️⃣", title: "Supplier Relationship Management", x: 25, y: 60 },
+  { id: 4, emoji: "4️⃣", title: "Strategic Sourcing", x: 80, y: 45 },
+  { id: 5, emoji: "5️⃣", title: "Leadership & Teamwork", x: 45, y: 25 },
+  { id: 6, emoji: "6️⃣", title: "Communication & Negotiation", x: 65, y: 70 },
+  { id: 7, emoji: "7️⃣", title: "Financial Literacy", x: 10, y: 45 },
+  { id: 8, emoji: "8️⃣", title: "Ethical & Sustainable Sourcing", x: 85, y: 25 },
+  { id: 9, emoji: "9️⃣", title: "Digital Procurement Skills", x: 35, y: 75 },
+  { id: 10, emoji: "🔟", title: "Adaptability & Resilience", x: 55, y: 50 },
+];
+
+// Placeholder definitions - please provide the actual definitions from your table
+const skillDefinitions: Record<number, string> = {
+  1: "The ability to think strategically and see the big picture in procurement decisions.",
+  2: "Making informed decisions based on data analysis and market intelligence.",
+  3: "Building and maintaining strong relationships with suppliers and partners.",
+  4: "Developing comprehensive sourcing strategies to optimize value and reduce risk.",
+  5: "Leading teams effectively and collaborating across organizational boundaries.",
+  6: "Effectively communicating and negotiating with stakeholders and suppliers.",
+  7: "Understanding financial principles and their impact on procurement decisions.",
+  8: "Ensuring ethical practices and sustainability in sourcing decisions.",
+  9: "Leveraging digital tools and technologies to enhance procurement processes.",
+  10: "Adapting to change and building resilience in dynamic business environments.",
+};
+
+const SkillsSection = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
+
+  return (
+    <section className="min-h-screen flex flex-col justify-center items-center px-6 lg:px-12 py-16 bg-background">
+      <div className="max-w-6xl w-full">
+        {/* Title */}
+        <h2 className="font-body text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed text-center mb-16">
+          Skills for the today and for the future
+        </h2>
+
+        {/* Skills Area */}
+        <div className="relative h-96 mb-16">
+          {skills.map((skill) => (
+            <div
+              key={skill.id}
+              className={`absolute cursor-pointer transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 font-bold text-sm md:text-base lg:text-lg ${
+                hoveredSkill === skill.id 
+                  ? 'text-white drop-shadow-lg scale-110' 
+                  : 'text-muted-foreground/40 hover:text-muted-foreground/60'
+              }`}
+              style={{ 
+                left: `${skill.x}%`, 
+                top: `${skill.y}%` 
+              }}
+              onMouseEnter={() => setHoveredSkill(skill.id)}
+              onMouseLeave={() => setHoveredSkill(null)}
+            >
+              <span className="mr-2">{skill.emoji}</span>
+              {skill.title}
+            </div>
+          ))}
+        </div>
+
+        {/* Definition Banner */}
+        <div className="bg-muted/20 rounded-lg p-6 min-h-[80px] flex items-center justify-center border border-border/50">
+          <p className="font-body text-foreground/80 text-base md:text-lg text-center leading-relaxed">
+            {hoveredSkill 
+              ? skillDefinitions[hoveredSkill] 
+              : "Hover over a skill to see its definition"
+            }
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default SkillsSection;
