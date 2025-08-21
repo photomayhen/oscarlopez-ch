@@ -41,7 +41,6 @@ const Index = () => {
       <HeroSection />
       <CompaniesSection />
       <TimelineSection />
-      <SkillsSection />
       <FeaturedProjectsSection />
       <ServicesSection />
       <RecognitionsSection />
@@ -50,6 +49,7 @@ const Index = () => {
       <FAQSection />
       <ContactSection />
       <HeroMirror />
+      <SkillsSection />
       <FooterSection />
     </div>
   );

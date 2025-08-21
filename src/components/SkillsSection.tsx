@@ -43,10 +43,10 @@ const SkillsSection = () => {
           {skills.map((skill) => (
             <div
               key={skill.id}
-              className={`absolute cursor-pointer transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 font-bold text-sm md:text-base lg:text-lg ${
+              className={`absolute cursor-pointer transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 font-bold text-center ${
                 hoveredSkill === skill.id 
-                  ? 'text-white drop-shadow-lg scale-110' 
-                  : 'text-muted-foreground/40 hover:text-muted-foreground/60'
+                  ? 'text-white drop-shadow-lg scale-110 text-lg md:text-xl lg:text-2xl' 
+                  : 'text-muted-foreground/40 hover:text-muted-foreground/60 text-base md:text-lg lg:text-xl'
               }`}
               style={{ 
                 left: `${skill.x}%`, 
