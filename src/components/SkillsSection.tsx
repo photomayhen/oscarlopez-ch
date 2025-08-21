@@ -34,7 +34,7 @@ const SkillsSection = () => {
     <section className="min-h-screen flex flex-col justify-center items-center px-6 lg:px-12 py-16 bg-background">
       <div className="max-w-6xl w-full">
         {/* Title */}
-        <h2 className="font-body text-lg md:text-xl lg:text-2xl text-foreground/80 leading-relaxed text-center mb-16">
+        <h2 className="font-body text-base md:text-lg lg:text-xl text-foreground/80 leading-relaxed text-center mb-16">
           Skills for the today and for the future
         </h2>
 
@@ -45,8 +45,8 @@ const SkillsSection = () => {
               key={skill.id}
               className={`absolute cursor-pointer transition-all duration-300 transform -translate-x-1/2 -translate-y-1/2 font-bold text-center ${
                 hoveredSkill === skill.id 
-                  ? 'text-white drop-shadow-lg scale-110 text-lg md:text-xl lg:text-2xl' 
-                  : 'text-muted-foreground/40 hover:text-muted-foreground/60 text-base md:text-lg lg:text-xl'
+                  ? 'text-white drop-shadow-lg scale-110 text-base md:text-lg lg:text-xl' 
+                  : 'text-muted-foreground/40 hover:text-muted-foreground/60 text-sm md:text-base lg:text-lg'
               }`}
               style={{ 
                 left: `${skill.x}%`, 
@@ -63,7 +63,7 @@ const SkillsSection = () => {
 
         {/* Definition Banner */}
         <div className="bg-muted/20 rounded-lg p-6 min-h-[80px] flex items-center justify-center border border-border/50">
-          <p className="font-body text-foreground/80 text-base md:text-lg text-center leading-relaxed">
+          <p className="font-body text-foreground/80 text-sm md:text-base text-center leading-relaxed">
             {hoveredSkill 
               ? skillDefinitions[hoveredSkill] 
               : "Hover over a skill to see its definition"
