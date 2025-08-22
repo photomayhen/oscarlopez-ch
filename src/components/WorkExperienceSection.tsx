@@ -27,7 +27,7 @@ const WorkExperienceSection = () => {
   return (
     <section className="py-16 md:py-24 bg-background px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {experiences.map((experience) => (
             <div
               key={experience.id}
@@ -39,17 +39,17 @@ const WorkExperienceSection = () => {
               onMouseEnter={() => setHoveredBox(experience.id)}
               onMouseLeave={() => setHoveredBox(null)}
             >
-              <h3 className="font-body text-lg font-semibold mb-4 leading-relaxed">
+              <h3 className="font-body text-lg font-semibold mb-4 leading-snug">
                 {experience.title}
               </h3>
               
-              <p className="font-body text-sm leading-relaxed mb-4">
+              <p className="font-body text-sm leading-snug mb-4">
                 {experience.content}
               </p>
               
               <div className="mt-4">
-                <p className="font-body text-xs font-medium">
-                  <span className="font-semibold">Keywords:</span> {experience.keywords}
+                <p className="font-body text-xs font-medium" style={{ fontSize: '10px' }}>
+                  {experience.keywords}
                 </p>
               </div>
             </div>
