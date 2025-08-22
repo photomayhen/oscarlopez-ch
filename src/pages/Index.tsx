@@ -12,6 +12,7 @@ import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import HeroMirror from "@/components/HeroMirror";
 import SkillsSection from "@/components/SkillsSection";
+import WorkExperienceSection from "@/components/WorkExperienceSection";
 
 const Index = () => {
   useEffect(() => {
@@ -41,6 +42,7 @@ const Index = () => {
       <HeroSection />
       <CompaniesSection />
       <TimelineSection />
+      <WorkExperienceSection />
       <FeaturedProjectsSection />
       <ServicesSection />
       <RecognitionsSection />
