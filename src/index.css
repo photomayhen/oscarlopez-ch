@@ -120,7 +120,7 @@ All colors MUST be HSL.
 @layer utilities {
   .animate-shine {
     background: linear-gradient(
-      45deg,
+      -45deg,
       transparent 30%,
       rgba(255, 255, 255, 0.1) 40%,
       rgba(255, 255, 255, 0.3) 50%,

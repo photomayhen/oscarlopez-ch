@@ -77,7 +77,7 @@ const SkillsSection = () => {
             How I Can Transform Your Business
           </h3>
           
-          <div className="space-y-3 font-body text-foreground/90 text-sm md:text-base leading-snug">
+          <div className="space-y-2 font-body text-foreground/90 text-sm md:text-base leading-tight">
             <div>
               <p className="font-semibold">🏢 PERMANENT ROLES: <span className="font-normal">Senior leadership positions where strategic procurement drives competitive advantage</span></p>
             </div>
@@ -87,8 +87,8 @@ const SkillsSection = () => {
             </div>
             
             <div>
-              <p className="font-semibold mb-2">🎯 PROJECT CONTRACTS: <span className="font-normal">Specific challenges requiring specialized expertise:</span></p>
-              <ul className="ml-6 space-y-1 text-foreground/80">
+              <p className="font-semibold mb-1">🎯 PROJECT CONTRACTS: <span className="font-normal">Specific challenges requiring specialized expertise:</span></p>
+              <ul className="ml-6 space-y-0.5 text-foreground/80">
                 <li>• High-stakes contract negotiations</li>
                 <li>• Vendor relationship rescue missions</li>
                 <li>• Procurement process optimization</li>
