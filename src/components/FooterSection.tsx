@@ -8,7 +8,7 @@ const FooterSection = () => {
 
   return (
     <footer id="contact" className="w-full bg-background py-16 md:py-24">
-      <div className="max-w-5xl mx-auto px-6 lg:px-12">
+      <div className="mx-8 md:mx-16 lg:mx-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Column - Logo & Tagline */}
           <div className="animate-fade-in">
@@ -29,7 +29,7 @@ const FooterSection = () => {
           </div>
 
           {/* Right Column - Social Links */}
-          <div className="animate-fade-in text-right" style={{ animationDelay: '200ms' }}>
+          <div className="animate-fade-in text-left md:text-right" style={{ animationDelay: '200ms' }}>
             <nav className="space-y-3">
               {socialLinks.map((link, index) => (
                 <div key={index}>
