@@ -96,8 +96,11 @@ export default {
 					'30%': {
 						backgroundPosition: '-200% 0'
 					},
+					'31%': {
+						backgroundPosition: '-400% 0'
+					},
 					'100%': {
-						backgroundPosition: '-200% 0'
+						backgroundPosition: '-400% 0'
 					}
 				}
 			},
