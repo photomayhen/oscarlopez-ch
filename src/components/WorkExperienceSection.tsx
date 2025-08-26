@@ -18,8 +18,8 @@ const WorkExperienceSection = () => {
     },
     {
       id: 3,
-      title: "3. Principal Commercial Manager - Global Procurement & Supply Chain",
-      content: "Multi-Category Procurement & Cost Optimization Expert | Managed multi-million EUR procurement portfolio across direct/indirect spend including Smart Cards, software, IT infrastructure, marketing services, and telecommunications devices. Delivered multi-million EUR annual savings through strategic sourcing while maintaining service excellence. Established Supplier Performance Management processes, resulting in suppliers receiving \"Vodafone Supplier of the Year Award\" twice. Specialized in vendor consolidation, risk mitigation, and innovative procurement strategies.",
+      title: "3. The Cost Optimization Maestro",
+      content: "Strategic Sourcing & Risk Mitigation Expert\nMaster of vendor ecosystems and supply chain orchestration.\nProven track record of delivering exceptional savings without quality compromise.\nAward-winning supplier development and performance management.\n\n💰 Generated 8-figure annual savings across multiple categories\n\n🏅 Developed award-winning supplier partnerships (multiple industry recognitions)\n\n🎪 Specialized in turning procurement challenges into competitive advantages",
       keywords: "Strategic Sourcing, Supplier Performance Management, Cost Optimization, Category Management, Direct/Indirect Procurement, IT Procurement, Telecommunications Sourcing, Vendor Consolidation, Supply Chain Excellence"
     }
   ];
