@@ -12,8 +12,8 @@ const WorkExperienceSection = () => {
     },
     {
       id: 2,
-      title: "2. Director Corporate Relationship Management - Biotechnology & Pharmaceuticals",
-      content: "Procurement-Sales Bridge & Strategic Partnership Developer | Pioneered account management strategies connecting sales teams with procurement departments of major pharmaceutical companies, CROs, and academic institutions. Delivered 20% business growth in molecular diagnostics through procurement-aligned partnerships. Trained 100+ sales professionals in advanced negotiation techniques and established KPI dashboards. Successfully negotiated framework agreements with global pharmaceutical companies, transforming sales into strategic procurement partnerships.",
+      title: "2. The Partnership Catalyst",
+      content: "Sales-Procurement Bridge Builder\nBridge the gap between what sales promises and procurement delivers.\nTurn adversarial negotiations into collaborative growth engines.\nProven methodology for 20%+ revenue acceleration.\n\n🎯 Trained 100+ professionals in advanced negotiation psychology\n\n📈 Delivered double-digit growth through procurement-sales alignment\n\n🤝 Transformed vendor relationships into strategic partnerships",
       keywords: "Pharmaceutical Procurement, Strategic Sourcing, Vendor Management, Framework Agreements, Molecular Diagnostics, CRO Partnerships, Procurement Strategy, Negotiation Training"
     },
     {
