@@ -93,8 +93,8 @@ export default {
 					'0%': {
 						backgroundPosition: '200% 0'
 					},
-					'70%': {
-						backgroundPosition: '200% 0'
+					'30%': {
+						backgroundPosition: '-200% 0'
 					},
 					'100%': {
 						backgroundPosition: '-200% 0'
