@@ -13,6 +13,7 @@ import FooterSection from "@/components/FooterSection";
 import HeroMirror from "@/components/HeroMirror";
 import SkillsSection from "@/components/SkillsSection";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
+import PublicationsSection from "@/components/PublicationsSection";
 
 const Index = () => {
   useEffect(() => {
@@ -53,6 +54,7 @@ const Index = () => {
       <HeroMirror />
       <SkillsSection />
       <FooterSection />
+      <PublicationsSection />
     </div>
   );
 };
