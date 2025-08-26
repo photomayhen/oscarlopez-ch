@@ -63,7 +63,8 @@ const WorkExperienceSection = () => {
               Strategic Thinking Arsenal
             </h3>
             <p className="font-body text-sm leading-snug whitespace-pre-line">
-              🧠 Negotiation Psychology: Reading between the lines of what people really want
+              
+🧠 Negotiation Psychology: Reading between the lines of what people really want
 
 🎯 Risk Orchestration: Turning potential threats into strategic opportunities
 
