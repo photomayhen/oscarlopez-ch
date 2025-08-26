@@ -43,7 +43,7 @@ const WorkExperienceSection = () => {
                 {experience.title}
               </h3>
               
-              <p className="font-body text-sm leading-snug mb-4">
+              <p className="font-body text-sm leading-snug mb-4 whitespace-pre-line">
                 {experience.content}
               </p>
               
