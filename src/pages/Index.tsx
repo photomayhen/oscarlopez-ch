@@ -53,8 +53,8 @@ const Index = () => {
       <ContactSection />
       <HeroMirror />
       <SkillsSection />
-      <FooterSection />
       <PublicationsSection />
+      <FooterSection />
     </div>
   );
 };
