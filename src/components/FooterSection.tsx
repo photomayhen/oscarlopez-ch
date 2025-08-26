@@ -24,9 +24,17 @@ const FooterSection = () => {
             <h3 className="text-4xl md:text-5xl lg:text-6xl font-heading text-foreground mb-2">
               Oscar
             </h3>
-            <p className="text-base md:text-lg font-body text-muted-foreground">
+            <p className="text-base md:text-lg font-body text-muted-foreground mb-4">
               Procurement Excellence
             </p>
+            <div className="space-y-2">
+              <p className="font-body text-base text-muted-foreground">
+                oscarlt@me.com
+              </p>
+              <p className="font-body text-base text-muted-foreground">
+                +41 77 266 34 48
+              </p>
+            </div>
           </div>
 
           {/* Middle Column - Navigation Links */}
@@ -60,18 +68,6 @@ const FooterSection = () => {
                 </div>
               ))}
             </nav>
-          </div>
-        </div>
-
-        {/* Bottom Section - Contact Info */}
-        <div className="mt-16 pt-8 animate-fade-in" style={{ animationDelay: '300ms' }}>
-          <div className="space-y-2">
-            <p className="font-body text-base text-muted-foreground">
-              oscarlt@me.com
-            </p>
-            <p className="font-body text-base text-muted-foreground">
-              +41 77 266 34 48
-            </p>
           </div>
         </div>
       </div>
