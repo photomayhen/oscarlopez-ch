@@ -6,8 +6,8 @@ const WorkExperienceSection = () => {
   const experiences = [
     {
       id: 1,
-      title: "1. Senior Contract Commercial Manager - Telecommunications & Technology",
-      content: "Strategic Contract Negotiation & Risk Management Leader | Managed end-to-end contract lifecycle for telecommunications operators with multi-million CHF portfolios annually. Successfully secured and negotiated multi-million CHF contracts through strategic tender management. Led digital transformation using AI-driven contract analysis tools, achieving top Western Europe rankings for contract lifecycle management. Specialized in 5G network infrastructure contracts, public/private sector tenders, and enterprise partnerships across Switzerland and DACH region.",
+      title: "1. The Contract Architect",
+      content: "Multi-Million Portfolio Strategist\nTransform complex technical requirements into bulletproof agreements. \nSpecialist in turning high-risk negotiations into guaranteed wins. \nDigital transformation pioneer using AI-driven contract intelligence.\n\n🏆 Secured 9-figure contracts through strategic positioning\n⚡ Eliminated penalty risks worth millions while strengthening partnerships  \n🚀 Achieved top regional performance rankings through innovation",
       keywords: "Contract Management, Strategic Negotiations, Procurement Excellence, Risk Management, Tender Management, AI Contract Analysis, 5G Infrastructure, Telecommunications Procurement"
     },
     {
