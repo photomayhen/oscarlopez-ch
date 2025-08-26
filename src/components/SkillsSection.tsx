@@ -39,7 +39,7 @@ const SkillsSection = () => {
         </h2>
 
         {/* Skills Area */}
-        <div className="relative h-96 mb-8">
+        <div className="relative h-96 mb-4">
           {skills.map((skill) => (
             <div
               key={skill.id}
