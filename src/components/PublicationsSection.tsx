@@ -9,7 +9,7 @@ const PublicationsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-24 bg-background px-6 lg:px-12">
+    <section className="pt-4 pb-16 md:pb-24 bg-background px-6 lg:px-12">
       <div className="max-w-5xl mx-auto text-center">
         <div 
           className={`transition-all duration-700 transform ${
