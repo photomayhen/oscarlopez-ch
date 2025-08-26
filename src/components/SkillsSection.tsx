@@ -72,7 +72,7 @@ const SkillsSection = () => {
         </div>
 
         {/* Business Transformation Section */}
-        <div className="mt-16 mx-8 md:mx-16 lg:mx-24 text-left relative overflow-hidden bg-muted/10 rounded-lg p-8 animate-shine">
+        <div className="mt-16 mx-8 md:mx-16 lg:mx-24 text-left bg-muted/10 rounded-lg p-8 border-2 border-white">
           <h3 className="font-body text-foreground text-base md:text-lg mb-4 leading-tight">
             How I Can Transform Your Business
           </h3>
