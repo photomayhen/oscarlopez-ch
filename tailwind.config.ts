@@ -91,20 +91,16 @@ export default {
 				},
 				'shine': {
 					'0%': {
-						backgroundPosition: '200% 0',
-						opacity: '1'
+						backgroundPosition: '200% 0'
 					},
 					'30%': {
-						backgroundPosition: '-200% 0',
-						opacity: '1'
+						backgroundPosition: '-200% 0'
 					},
 					'31%': {
-						backgroundPosition: '-200% 0',
-						opacity: '0'
+						backgroundPosition: '200% 0'
 					},
 					'100%': {
-						backgroundPosition: '-200% 0',
-						opacity: '0'
+						backgroundPosition: '200% 0'
 					}
 				}
 			},
