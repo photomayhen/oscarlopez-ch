@@ -7,7 +7,7 @@ const WorkExperienceSection = () => {
     {
       id: 1,
       title: "1. The Contract Architect",
-      content: "Multi-Million Portfolio Strategist\nTransform complex technical requirements into bulletproof agreements. \nSpecialist in turning high-risk negotiations into guaranteed wins. \nDigital transformation pioneer using AI-driven contract intelligence.\n\n🏆 Secured 9-figure contracts through strategic positioning\n⚡ Eliminated penalty risks worth millions while strengthening partnerships  \n🚀 Achieved top regional performance rankings through innovation",
+      content: "Multi-Million Portfolio Strategist\nTransform complex technical requirements into bulletproof agreements. \nSpecialist in turning high-risk negotiations into guaranteed wins. \nDigital transformation pioneer using AI-driven contract intelligence.\n\n🏆 Secured 9-figure contracts through strategic positioning\n\n⚡ Eliminated penalty risks worth millions while strengthening partnerships\n\n🚀 Achieved top regional performance rankings through innovation",
       keywords: "Contract Management, Strategic Negotiations, Procurement Excellence, Risk Management, Tender Management, AI Contract Analysis, 5G Infrastructure, Telecommunications Procurement"
     },
     {
