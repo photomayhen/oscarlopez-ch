@@ -9,8 +9,8 @@ const IslandNavbar = () => {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "Projects", href: "#projects" },
+    { label: "Home", href: "#top" },
+    { label: "Experiences", href: "#experiences" },
     { label: "Services", href: "#services" },
     { label: "Contact", href: "#contact" },
   ];

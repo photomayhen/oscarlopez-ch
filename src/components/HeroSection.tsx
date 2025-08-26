@@ -5,7 +5,7 @@ const HeroSection = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section className="min-h-screen bg-background flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
+  return <section id="top" className="min-h-screen bg-background flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
       <IslandNavbar />
       {/* Background Video Layer */}
       <video autoPlay muted loop playsInline controls={false} className="absolute inset-0 w-full h-full object-cover mix-blend-color-dodge rounded-sm">

@@ -25,7 +25,7 @@ const WorkExperienceSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background px-6 lg:px-12">
+    <section id="experiences" className="py-16 md:py-24 bg-background px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {experiences.map((experience) => (
