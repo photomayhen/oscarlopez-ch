@@ -55,6 +55,26 @@ const WorkExperienceSection = () => {
             </div>
           ))}
         </div>
+
+        {/* Strategic Thinking Arsenal Section */}
+        <div className="mt-8">
+          <div className="border border-white p-6 text-center text-white">
+            <h3 className="font-body text-lg font-semibold mb-4">
+              Strategic Thinking Arsenal
+            </h3>
+            <p className="font-body text-sm leading-snug whitespace-pre-line">
+              🧠 Negotiation Psychology: Reading between the lines of what people really want
+
+🎯 Risk Orchestration: Turning potential threats into strategic opportunities
+
+⚡ Digital Procurement: Leveraging AI and automation for competitive advantage
+
+🤝 Stakeholder Alchemy: Converting adversaries into advocates
+
+🚀 Innovation Procurement: Sourcing tomorrow's solutions today
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
