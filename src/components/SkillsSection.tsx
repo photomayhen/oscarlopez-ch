@@ -34,7 +34,7 @@ const SkillsSection = () => {
     <section className="min-h-screen flex flex-col justify-center items-center px-6 lg:px-12 py-16 bg-background">
       <div className="max-w-6xl w-full">
         {/* Title */}
-        <h2 className="font-body text-base md:text-lg lg:text-xl text-foreground/80 leading-relaxed text-center mb-16">
+        <h2 className="font-body text-base md:text-lg lg:text-xl text-foreground/80 leading-relaxed text-center mb-4">
           Skills for the today and for the future
         </h2>
 
