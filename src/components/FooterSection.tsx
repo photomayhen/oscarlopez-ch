@@ -29,7 +29,7 @@ const FooterSection = () => {
           </div>
 
           {/* Right Column - Social Links */}
-          <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+          <div className="animate-fade-in text-right" style={{ animationDelay: '200ms' }}>
             <nav className="space-y-3">
               {socialLinks.map((link, index) => (
                 <div key={index}>
