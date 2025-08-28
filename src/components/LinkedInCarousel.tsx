@@ -75,7 +75,7 @@ const LinkedInCarousel: React.FC<LinkedInCarouselProps> = ({ publications }) => 
             <img
               src={publications[selectedIndex].image}
               alt={publications[selectedIndex].title}
-              className="h-48 w-auto object-cover rounded-lg shadow-lg transition-transform duration-200 group-hover:scale-105"
+              className="h-56 w-auto object-cover rounded-lg shadow-lg transition-transform duration-200 group-hover:scale-105"
             />
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg flex items-center justify-center">
