@@ -43,6 +43,11 @@ const FooterSection = () => {
                 </div>
               ))}
             </nav>
+            <div className="mt-8">
+              <p className="font-body text-lg md:text-xl text-foreground font-semibold uppercase tracking-wider">
+                Let´s connect!
+              </p>
+            </div>
           </div>
         </div>
       </div>
