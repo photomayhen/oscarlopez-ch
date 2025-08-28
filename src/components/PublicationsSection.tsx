@@ -46,6 +46,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/a3c0f215-b648-4403-b392-179ce4dff479.png",
       title: "🌍 Greater Zurich: Exciting developments in the tech world!",
       link: "https://www.linkedin.com/posts/oscarlt_techinnovation-greaterzurich-sustainability-activity-7359463417843224576-YTUh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 7,
+      image: "/lovable-uploads/78bddb60-927e-49c2-9ffd-199626afdcf2.png",
+      title: "🚨 The 3 AI News that caught my eye this Week",
+      link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7359872702091804672-fdkg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
