@@ -9,15 +9,14 @@ const PublicationsSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Publications data - to be populated with user content
+  // Publications data
   const publications = [
-    // Example structure - will be replaced with user data
-    // {
-    //   id: 1,
-    //   image: "/path-to-image.jpg",
-    //   title: "Publication Title",
-    //   link: "https://linkedin.com/article-link"
-    // }
+    {
+      id: 1,
+      image: "/lovable-uploads/feb59c01-e051-4dcf-8b29-040bc351be52.png",
+      title: "🚨 The $1.25 Trillion SaaS Reckoning: Why Procurement Holds All the Cards",
+      link: "https://www.linkedin.com/posts/oscarlt_procurement-saas-negotiation-activity-7353661407705407488-_vZK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    }
   ];
 
   return (
