@@ -43,12 +43,14 @@ const WorkExperienceSection = () => {
               onMouseLeave={() => setHoveredBox(null)}
             >
               {/* Profile Image - overlapping the border */}
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
-                <div className="w-16 h-16 rounded-full bg-white p-1 shadow-lg">
+              <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="w-32 h-32 rounded-full bg-white p-1 shadow-lg">
                   <img 
                     src={experience.image}
                     alt={`Oscar Lopez - ${experience.title}`}
-                    className="w-full h-full rounded-full object-cover object-center"
+                    className={`w-full h-full rounded-full object-cover ${
+                      experience.id === 1 ? 'object-[center_20%]' : 'object-center'
+                    }`}
                   />
                 </div>
               </div>
