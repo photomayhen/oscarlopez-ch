@@ -9,7 +9,7 @@ const WorkExperienceSection = () => {
       title: "1. The Contract Architect",
       content: "Multi-Million Portfolio Strategist\nTransform complex technical requirements into bulletproof agreements. \nSpecialist in turning high-risk negotiations into guaranteed wins. \nDigital transformation pioneer using AI-driven contract intelligence.\n\n🏆 Secured 9-figure contracts through strategic positioning\n\n⚡ Eliminated penalty risks worth millions while strengthening partnerships\n\n🚀 Achieved top regional performance rankings through innovation",
       keywords: "Contract Management, Strategic Negotiations, Procurement Excellence, Risk Management, Tender Management, AI Contract Analysis, 5G Infrastructure, Telecommunications Procurement",
-      image: "/lovable-uploads/23a27425-8265-456f-8b35-b2451649c629.png"
+      image: "/lovable-uploads/91b4f748-dcd2-4797-9cd2-4bc1489bd44e.png"
     },
     {
       id: 2,
@@ -48,9 +48,7 @@ const WorkExperienceSection = () => {
                   <img 
                     src={experience.image}
                     alt={`Oscar Lopez - ${experience.title}`}
-                    className={`w-full h-full rounded-full object-cover ${
-                      experience.id === 1 ? 'object-[center_35%]' : 'object-center'
-                    }`}
+                    className="w-full h-full rounded-full object-cover object-center"
                   />
                 </div>
               </div>
