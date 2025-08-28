@@ -64,6 +64,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/34f190a4-9c27-4fec-af34-19f53cee934d.png",
       title: "🚨 The 3 AI News That Caught My Eye This Week",
       link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7362370031915085825-mAfU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 10,
+      image: "/lovable-uploads/3eb7da62-64a1-48a2-9c54-3bb87f98b856.png",
+      title: "📑 The 20 Most Useful Commercial Contracts – The Ultimate Cheatsheet",
+      link: "https://www.linkedin.com/posts/oscarlt_the-20-most-useful-commercial-contracts-activity-7364174438038159360-L2wx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
