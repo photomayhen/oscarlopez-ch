@@ -8,19 +8,22 @@ const WorkExperienceSection = () => {
       id: 1,
       title: "1. The Contract Architect",
       content: "Multi-Million Portfolio Strategist\nTransform complex technical requirements into bulletproof agreements. \nSpecialist in turning high-risk negotiations into guaranteed wins. \nDigital transformation pioneer using AI-driven contract intelligence.\n\n🏆 Secured 9-figure contracts through strategic positioning\n\n⚡ Eliminated penalty risks worth millions while strengthening partnerships\n\n🚀 Achieved top regional performance rankings through innovation",
-      keywords: "Contract Management, Strategic Negotiations, Procurement Excellence, Risk Management, Tender Management, AI Contract Analysis, 5G Infrastructure, Telecommunications Procurement"
+      keywords: "Contract Management, Strategic Negotiations, Procurement Excellence, Risk Management, Tender Management, AI Contract Analysis, 5G Infrastructure, Telecommunications Procurement",
+      image: "/lovable-uploads/23a27425-8265-456f-8b35-b2451649c629.png"
     },
     {
       id: 2,
       title: "2. The Partnership Catalyst",
       content: "Sales-Procurement Bridge Builder\nBridge the gap between what sales promises and procurement delivers.\nTurn adversarial negotiations into collaborative growth engines.\nProven methodology for 20%+ revenue acceleration.\n\n🎯 Trained 100+ professionals in advanced negotiation psychology\n\n📈 Delivered double-digit growth through procurement-sales alignment\n\n🤝 Transformed vendor relationships into strategic partnerships",
-      keywords: "Pharmaceutical Procurement, Strategic Sourcing, Vendor Management, Framework Agreements, Molecular Diagnostics, CRO Partnerships, Procurement Strategy, Negotiation Training"
+      keywords: "Pharmaceutical Procurement, Strategic Sourcing, Vendor Management, Framework Agreements, Molecular Diagnostics, CRO Partnerships, Procurement Strategy, Negotiation Training",
+      image: "/lovable-uploads/9191987a-3735-4c75-9904-ee426dcd9d88.png"
     },
     {
       id: 3,
       title: "3. The Cost Optimization Maestro",
       content: "Strategic Sourcing & Risk Mitigation Expert\nMaster of vendor ecosystems and supply chain orchestration.\nProven track record of delivering exceptional savings without quality compromise.\nAward-winning supplier development and performance management.\n\n💰 Generated 8-figure annual savings across multiple categories\n\n🏅 Developed award-winning supplier partnerships (multiple industry recognitions)\n\n🎪 Specialized in turning procurement challenges into competitive advantages",
-      keywords: "Strategic Sourcing, Supplier Performance Management, Cost Optimization, Category Management, Direct/Indirect Procurement, IT Procurement, Telecommunications Sourcing, Vendor Consolidation, Supply Chain Excellence"
+      keywords: "Strategic Sourcing, Supplier Performance Management, Cost Optimization, Category Management, Direct/Indirect Procurement, IT Procurement, Telecommunications Sourcing, Vendor Consolidation, Supply Chain Excellence",
+      image: "/lovable-uploads/1bfbdfd5-a346-4cc5-913f-8ba49a0b14a0.png"
     }
   ];
 
@@ -31,7 +34,7 @@ const WorkExperienceSection = () => {
           {experiences.map((experience) => (
             <div
               key={experience.id}
-              className={`border border-white p-6 transition-all duration-300 cursor-pointer ${
+              className={`relative border border-white p-6 pt-20 transition-all duration-300 cursor-pointer ${
                 hoveredBox === experience.id
                   ? 'text-white'
                   : 'text-muted-foreground/50'
@@ -39,7 +42,18 @@ const WorkExperienceSection = () => {
               onMouseEnter={() => setHoveredBox(experience.id)}
               onMouseLeave={() => setHoveredBox(null)}
             >
-              <h3 className="font-body text-lg font-semibold mb-4 leading-snug">
+              {/* Profile Image - overlapping the border */}
+              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+                <div className="w-16 h-16 rounded-full bg-white p-1 shadow-lg">
+                  <img 
+                    src={experience.image}
+                    alt={`Oscar Lopez - ${experience.title}`}
+                    className="w-full h-full rounded-full object-cover object-center"
+                  />
+                </div>
+              </div>
+              
+              <h3 className="font-body text-lg font-semibold mb-4 leading-snug mt-3">
                 {experience.title}
               </h3>
               
