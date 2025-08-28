@@ -16,14 +16,14 @@ const WorkExperienceSection = () => {
       title: "2. The Partnership Catalyst",
       content: "Sales-Procurement Bridge Builder\nBridge the gap between what sales promises and procurement delivers.\nTurn adversarial negotiations into collaborative growth engines.\nProven methodology for 20%+ revenue acceleration.\n\n🎯 Trained 100+ professionals in advanced negotiation psychology\n\n📈 Delivered double-digit growth through procurement-sales alignment\n\n🤝 Transformed vendor relationships into strategic partnerships",
       keywords: "Pharmaceutical Procurement, Strategic Sourcing, Vendor Management, Framework Agreements, Molecular Diagnostics, CRO Partnerships, Procurement Strategy, Negotiation Training",
-      image: "/lovable-uploads/9191987a-3735-4c75-9904-ee426dcd9d88.png"
+      image: "/lovable-uploads/1bfbdfd5-a346-4cc5-913f-8ba49a0b14a0.png"
     },
     {
       id: 3,
       title: "3. The Cost Optimization Maestro",
       content: "Strategic Sourcing & Risk Mitigation Expert\nMaster of vendor ecosystems and supply chain orchestration.\nProven track record of delivering exceptional savings without quality compromise.\nAward-winning supplier development and performance management.\n\n💰 Generated 8-figure annual savings across multiple categories\n\n🏅 Developed award-winning supplier partnerships (multiple industry recognitions)\n\n🎪 Specialized in turning procurement challenges into competitive advantages",
       keywords: "Strategic Sourcing, Supplier Performance Management, Cost Optimization, Category Management, Direct/Indirect Procurement, IT Procurement, Telecommunications Sourcing, Vendor Consolidation, Supply Chain Excellence",
-      image: "/lovable-uploads/1bfbdfd5-a346-4cc5-913f-8ba49a0b14a0.png"
+      image: "/lovable-uploads/9191987a-3735-4c75-9904-ee426dcd9d88.png"
     }
   ];
 
