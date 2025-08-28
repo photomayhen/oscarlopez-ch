@@ -34,6 +34,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/465fa231-aa20-438a-86cf-ebabcb3f5479.png",
       title: "🚨 The 3 AI News That Caught My Eye This Week",
       link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7357289049230852096-LNQi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 5,
+      image: "/lovable-uploads/d93f98ec-4459-49d2-9322-8ce97a41bf4d.png",
+      title: "🚨 The Reality Check: My Experience with DIA, The Browser Company's New AI Browser",
+      link: "https://www.linkedin.com/posts/oscarlt_the-reality-check-my-experience-with-activity-7358734837408485378-Vu1e?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
