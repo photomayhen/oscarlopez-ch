@@ -58,6 +58,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/d6bf8a45-6573-442b-a079-ca64a7c18d18.png",
       title: "👉 Give me that NDA",
       link: "https://www.linkedin.com/posts/oscarlt_give-me-that-nda-activity-7360550620228927488-ucRI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 9,
+      image: "/lovable-uploads/34f190a4-9c27-4fec-af34-19f53cee934d.png",
+      title: "🚨 The 3 AI News That Caught My Eye This Week",
+      link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7362370031915085825-mAfU?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
