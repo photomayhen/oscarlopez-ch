@@ -49,7 +49,7 @@ const WorkExperienceSection = () => {
                     src={experience.image}
                     alt={`Oscar Lopez - ${experience.title}`}
                     className={`w-full h-full rounded-full object-cover ${
-                      experience.id === 1 ? 'object-[center_25%]' : 'object-center'
+                      experience.id === 1 ? 'object-[center_35%]' : 'object-center'
                     }`}
                   />
                 </div>
