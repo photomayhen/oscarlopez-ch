@@ -16,6 +16,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/feb59c01-e051-4dcf-8b29-040bc351be52.png",
       title: "🚨 The $1.25 Trillion SaaS Reckoning: Why Procurement Holds All the Cards",
       link: "https://www.linkedin.com/posts/oscarlt_procurement-saas-negotiation-activity-7353661407705407488-_vZK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 2,
+      image: "/lovable-uploads/2be30c95-2c49-4613-a396-e96e16c8a204.png",
+      title: "🚨 The 3 AI News That Caught My Eye This Week",
+      link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7355522405676556288-Up_s?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
