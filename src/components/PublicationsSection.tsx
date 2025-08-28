@@ -70,6 +70,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/3eb7da62-64a1-48a2-9c54-3bb87f98b856.png",
       title: "📑 The 20 Most Useful Commercial Contracts – The Ultimate Cheatsheet",
       link: "https://www.linkedin.com/posts/oscarlt_the-20-most-useful-commercial-contracts-activity-7364174438038159360-L2wx?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 11,
+      image: "/lovable-uploads/47b20469-8df5-4924-b0af-ab742f4e17a4.png",
+      title: "🚨 Top 10 Professional Skills Every Chief Procurement Officer Needs in 2025",
+      link: "https://www.linkedin.com/posts/oscarlt_top-10-professional-skills-every-chief-activity-7365620214060822528-nOUF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
