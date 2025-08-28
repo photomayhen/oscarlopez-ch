@@ -40,6 +40,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/d93f98ec-4459-49d2-9322-8ce97a41bf4d.png",
       title: "🚨 The Reality Check: My Experience with DIA, The Browser Company's New AI Browser",
       link: "https://www.linkedin.com/posts/oscarlt_the-reality-check-my-experience-with-activity-7358734837408485378-Vu1e?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 6,
+      image: "/lovable-uploads/a3c0f215-b648-4403-b392-179ce4dff479.png",
+      title: "🌍 Greater Zurich: Exciting developments in the tech world!",
+      link: "https://www.linkedin.com/posts/oscarlt_techinnovation-greaterzurich-sustainability-activity-7359463417843224576-YTUh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
