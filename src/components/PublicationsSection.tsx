@@ -28,6 +28,12 @@ const PublicationsSection = () => {
       image: "/lovable-uploads/3e0d64d5-a21b-4340-95be-a7eaf4a2a17c.png",
       title: "🎭 AI Copyright Dilemma: A cautionary tale every software professional needs to read",
       link: "https://www.linkedin.com/posts/oscarlt_my-new-article-a-must-read-for-corporate-activity-7355828176322760707-vRZY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 4,
+      image: "/lovable-uploads/465fa231-aa20-438a-86cf-ebabcb3f5479.png",
+      title: "🚨 The 3 AI News That Caught My Eye This Week",
+      link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7357289049230852096-LNQi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
     }
   ];
 
