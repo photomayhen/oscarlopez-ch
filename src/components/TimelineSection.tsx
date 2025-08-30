@@ -312,7 +312,9 @@ const TimelineSection: React.FC = () => {
           tabIndex={0}
           aria-label="Scrollable career timeline from 2025 to 1994"
           className={cn(
-            "grid grid-cols-3 gap-2 sm:gap-4 md:gap-10",
+            "grid grid-cols-3 gap-1 sm:gap-2 md:gap-6",
+            // Scale down on mobile to fit all content
+            "transform scale-75 sm:scale-90 md:scale-100 origin-center",
             // Remove visual dividers
             "outline-none"
           )}
