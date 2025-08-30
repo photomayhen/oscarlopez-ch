@@ -312,14 +312,14 @@ const TimelineSection: React.FC = () => {
           tabIndex={0}
           aria-label="Scrollable career timeline from 2025 to 1994"
           className={cn(
-            "grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10",
+            "grid grid-cols-3 gap-2 sm:gap-4 md:gap-10",
             // Remove visual dividers
             "outline-none"
           )}
         >
           {/* Left Column: Years */}
-          <div className="md:col-start-1 md:col-span-1">
-            <ul ref={yearsListRef} className="flex flex-col items-center md:items-center gap-2 md:gap-4">
+          <div className="col-start-1 col-span-1">
+            <ul ref={yearsListRef} className="flex flex-col items-center gap-1 sm:gap-2 md:gap-4">
               {years.map((y, i) => (
                 <li
                   key={y}
@@ -329,7 +329,7 @@ const TimelineSection: React.FC = () => {
                     "will-change-transform transition-[transform,opacity,filter]",
                     "duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
                     "text-foreground/70 hover:text-foreground focus:text-foreground",
-                    "font-body text-base md:text-lg select-none"
+                    "font-body text-xs sm:text-sm md:text-lg select-none"
                   )}
                   aria-label={`Year ${y}`}
                 >
@@ -340,10 +340,10 @@ const TimelineSection: React.FC = () => {
           </div>
 
           {/* Center Column: Metallic Bar with Blue Atmospheric Glow */}
-          <div className="hidden md:flex items-stretch justify-center md:col-start-2 md:col-span-1">
+          <div className="flex items-stretch justify-center col-start-2 col-span-1">
             <div
               aria-hidden
-              className="relative w-8 md:w-12 rounded-full my-2"
+              className="relative w-2 sm:w-4 md:w-12 rounded-full my-2"
               style={{
                 // Enhanced chrome/silver gradient with blue atmospheric tones
                 background:
@@ -374,7 +374,7 @@ const TimelineSection: React.FC = () => {
           </div>
 
           {/* Right Column: Company Range Labels (single per company) */}
-          <div ref={rightColRef} className="relative md:col-start-3 md:col-span-1">
+          <div ref={rightColRef} className="relative col-start-3 col-span-1">
             {/* Absolutely positioned labels centered, height set via JS */}
             {ranges.map((r, i) => (
               <div
@@ -384,7 +384,7 @@ const TimelineSection: React.FC = () => {
                   "pointer-events-none select-none text-foreground/70",
                   "will-change-transform transition-[transform,opacity,filter]",
                   "duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
-                  "font-heading text-sm md:text-base tracking-wide"
+                  "font-heading text-xs sm:text-sm md:text-base tracking-wide"
                 )}
                 aria-label={`${r.label} from ${r.start} to ${r.end}`}
               >
