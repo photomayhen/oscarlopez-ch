@@ -14,7 +14,8 @@ interface LinkedInCarouselProps {
 }
 
 const LinkedInCarousel: React.FC<LinkedInCarouselProps> = ({ publications }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // Start with the most recent article (last in array)
+  const [selectedIndex, setSelectedIndex] = useState(publications.length - 1);
   const thumbnailsRef = useRef<HTMLDivElement>(null);
 
   const scrollToThumbnail = (index: number) => {

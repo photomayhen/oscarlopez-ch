@@ -14,11 +14,16 @@ import HeroMirror from "@/components/HeroMirror";
 import SkillsSection from "@/components/SkillsSection";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
 import PublicationsSection from "@/components/PublicationsSection";
+import NewsletterPopup from "@/components/NewsletterPopup";
+import useVisitorTracking from "@/hooks/useVisitorTracking";
 
 const Index = () => {
+  // Track visitor analytics
+  useVisitorTracking();
+
   useEffect(() => {
-    const title = "Oscar Lopez | Procurement & Vendor Management";
-    const description = "Procurement, Vendor Management, Contract negotiation & Contract Management - Oscar Lopez";
+    const title = "Oscar Lopez - Procurement & Contract Management Expert | oscarlopez.ch";
+    const description = "Oscar Lopez - Expert in Procurement, Vendor Management, Contract Negotiation & Management. Professional insights and industry expertise from Switzerland.";
 
     document.title = title;
 
@@ -55,6 +60,7 @@ const Index = () => {
       <SkillsSection />
       <PublicationsSection />
       <FooterSection />
+      <NewsletterPopup />
     </div>
   );
 };
