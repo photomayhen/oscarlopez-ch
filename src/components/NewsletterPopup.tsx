@@ -47,12 +47,14 @@ const NewsletterPopup = () => {
     setIsLoading(true);
 
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('newsletter_subscriptions')
         .insert({
           email: email.toLowerCase().trim(),
           linkedin_url: linkedinUrl.trim() || null
         });
+
+      console.log('Newsletter subscription attempt:', { data, error });
 
       if (error) {
         if (error.code === '23505') { // Unique constraint violation
