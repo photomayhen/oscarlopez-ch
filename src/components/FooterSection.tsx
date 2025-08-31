@@ -3,7 +3,7 @@ import React from 'react';
 const FooterSection = () => {
   const socialLinks = [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/oscarlt' },
-    { label: 'X', href: 'https://x.com/oscarsuiza' }
+    { label: 'Profile to X (former Twitter)', href: 'https://x.com/oscarsuiza' }
   ];
 
   return (
