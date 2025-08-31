@@ -50,6 +50,33 @@ export type Database = {
         }
         Relationships: []
       }
+      newsletter_subscriptions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          is_active: boolean
+          linkedin_url: string | null
+          subscribed_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          is_active?: boolean
+          linkedin_url?: string | null
+          subscribed_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          is_active?: boolean
+          linkedin_url?: string | null
+          subscribed_at?: string
+        }
+        Relationships: []
+      }
       social_media_results: {
         Row: {
           company_id: number | null
@@ -97,6 +124,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      visitor_analytics: {
+        Row: {
+          city: string | null
+          country: string | null
+          created_at: string
+          id: string
+          visited_at: string
+        }
+        Insert: {
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          visited_at?: string
+        }
+        Update: {
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: string
+          visited_at?: string
+        }
+        Relationships: []
       }
     }
     Views: {
