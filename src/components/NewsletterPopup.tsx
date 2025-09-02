@@ -77,7 +77,7 @@ const NewsletterPopup = () => {
       console.error('Newsletter subscription error:', error);
       toast({
         title: "Subscription failed",
-        description: "Please try again later.",
+        description: "There was an error processing your subscription. Please try again later.",
         variant: "destructive"
       });
     } finally {
