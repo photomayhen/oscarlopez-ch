@@ -14,42 +14,6 @@ export type Database = {
   }
   public: {
     Tables: {
-      companies_input: {
-        Row: {
-          company_name: string
-          crawl_count: number | null
-          created_at: string | null
-          error_message: string | null
-          id: number
-          last_crawled_at: string | null
-          status: string | null
-          updated_at: string | null
-          website: string
-        }
-        Insert: {
-          company_name: string
-          crawl_count?: number | null
-          created_at?: string | null
-          error_message?: string | null
-          id?: number
-          last_crawled_at?: string | null
-          status?: string | null
-          updated_at?: string | null
-          website: string
-        }
-        Update: {
-          company_name?: string
-          crawl_count?: number | null
-          created_at?: string | null
-          error_message?: string | null
-          id?: number
-          last_crawled_at?: string | null
-          status?: string | null
-          updated_at?: string | null
-          website?: string
-        }
-        Relationships: []
-      }
       newsletter_subscriptions: {
         Row: {
           created_at: string
@@ -77,54 +41,6 @@ export type Database = {
         }
         Relationships: []
       }
-      social_media_results: {
-        Row: {
-          company_id: number | null
-          company_name: string | null
-          crawl_session_id: string | null
-          discovered_at: string | null
-          id: number
-          platform: string | null
-          social_url: string | null
-          website: string | null
-        }
-        Insert: {
-          company_id?: number | null
-          company_name?: string | null
-          crawl_session_id?: string | null
-          discovered_at?: string | null
-          id?: number
-          platform?: string | null
-          social_url?: string | null
-          website?: string | null
-        }
-        Update: {
-          company_id?: number | null
-          company_name?: string | null
-          crawl_session_id?: string | null
-          discovered_at?: string | null
-          id?: number
-          platform?: string | null
-          social_url?: string | null
-          website?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "social_media_results_company_id_fkey"
-            columns: ["company_id"]
-            isOneToOne: false
-            referencedRelation: "companies_input"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "social_media_results_company_id_fkey"
-            columns: ["company_id"]
-            isOneToOne: false
-            referencedRelation: "companies_with_social_counts"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       visitor_analytics: {
         Row: {
           city: string | null
@@ -151,43 +67,10 @@ export type Database = {
       }
     }
     Views: {
-      companies_with_social_counts: {
-        Row: {
-          company_name: string | null
-          id: number | null
-          last_crawled_at: string | null
-          social_media_profiles_found: number | null
-          status: string | null
-          website: string | null
-        }
-        Relationships: []
-      }
-      crawling_progress: {
-        Row: {
-          count: number | null
-          percentage: number | null
-          status: string | null
-        }
-        Relationships: []
-      }
-      social_media_summary: {
-        Row: {
-          companies_with_profile: number | null
-          platform: string | null
-          total_profiles: number | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
-      add_companies: {
-        Args: { companies: Json }
-        Returns: undefined
-      }
-      reset_company_for_recrawl: {
-        Args: { company_name_param: string }
-        Returns: undefined
-      }
+      [_ in never]: never
     }
     Enums: {
       [_ in never]: never
