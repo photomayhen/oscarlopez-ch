@@ -12,6 +12,7 @@ const IslandNavbar = () => {
     { label: "Home", href: "#top" },
     { label: "Experiences", href: "#experiences" },
     { label: "Services", href: "#services" },
+    { label: "Publications", href: "#publications" },
     { label: "Contact", href: "#contact" },
   ];
 
