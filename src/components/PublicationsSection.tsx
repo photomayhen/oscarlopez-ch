@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import LinkedInCarousel from "./LinkedInCarousel";
+import img20250912 from "@/assets/20250912.jpg";
+import img20250908 from "@/assets/20250908_funnel.png";
+import img20250907 from "@/assets/20250907_AInews.png";
 import img20250905 from "@/assets/20250905_AI_Agents.png";
 import img20250904 from "@/assets/20250904_adobeimg.png";
 import img20250901 from "@/assets/20250901.png";
@@ -15,6 +18,27 @@ const PublicationsSection = () => {
 
   // Publications data - sorted from newest to oldest
   const publications = [
+    {
+      id: 18,
+      date: "2025-09-12",
+      image: img20250912,
+      title: "🔬 Cryptography Has Been Broken: Are You Ready? 🖥️",
+      link: "https://www.linkedin.com/posts/oscarlt_cryptography-has-been-broken-are-you-activity-7371769468554993665-zSjp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 17,
+      date: "2025-09-08",
+      image: img20250908,
+      title: "🚨 Procurement Funnels: Why Bigger is (Still) Better",
+      link: "https://www.linkedin.com/posts/oscarlt_procurement-funnels-why-bigger-is-still-activity-7371056042484350976-vlfj?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 16,
+      date: "2025-09-07",
+      image: img20250907,
+      title: "🚨 The 3 AI News That Caught My Eye Last Week",
+      link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-last-activity-7370514093818028032-ByYY?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
     {
       id: 15,
       date: "2025-09-05",
