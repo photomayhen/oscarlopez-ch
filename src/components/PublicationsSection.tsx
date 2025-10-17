@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import LinkedInCarousel from "./LinkedInCarousel";
+import img20251010 from "@/assets/20251010_AInews_02.png";
+import img20251009 from "@/assets/20251009_none_02.png";
+import img20251006 from "@/assets/20251006_Newsletter_02.png";
+import img20251004 from "@/assets/20251004_AInewsW40_02.png";
+import img20251003 from "@/assets/20251004_risksSupplyC_02.png";
+import img20250928 from "@/assets/20250928_AInews02.png";
 import img20250924 from "@/assets/20250924_AIbubble02.png";
 import img20250915 from "@/assets/20250910_titans_02.png";
 import img20250913 from "@/assets/20250913_Diella_03.png";
@@ -22,6 +28,48 @@ const PublicationsSection = () => {
 
   // Publications data - sorted from newest to oldest
   const publications = [
+    {
+      id: 28,
+      date: "2025-10-10",
+      image: img20251010,
+      title: "👀 The 3 AI news that caught my eye this week (Week 41 of 2025)",
+      link: "https://www.linkedin.com/posts/oscarlt_the-3-ai-news-that-caught-my-eye-this-activity-7382652438027194368-PxRl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 27,
+      date: "2025-10-09",
+      image: img20251009,
+      title: "🔥 Procurement vs. Supply Chain: The difference nobody tells",
+      link: "https://www.linkedin.com/posts/oscarlt_procurement-supplychain-leadership-activity-7381927673834602496-3gYH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 26,
+      date: "2025-10-06",
+      image: img20251006,
+      title: "📔 Why Every Creator is Building a Newsletter (And You Should Too)",
+      link: "https://www.linkedin.com/posts/oscarlt_why-every-creator-is-building-a-newsletter-activity-7381199186836217857-y1sy?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 25,
+      date: "2025-10-04",
+      image: img20251004,
+      title: "🚨 The 3 AI news that caught my eye this week (Week 40 of 2025)",
+      link: "https://www.linkedin.com/posts/oscarlt_ai-futureofwork-digitaltransformation-activity-7380485647415029760-lEJw?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 24,
+      date: "2025-10-03",
+      image: img20251003,
+      title: "🌊 Supply Chain Innovation – From Pirates to Polar Routes",
+      link: "https://www.linkedin.com/posts/oscarlt_globaltrade-supplychain-geopolitics-activity-7379028581886365696-OP-h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 23,
+      date: "2025-09-28",
+      image: img20250928,
+      title: "🚨 The 3 AI news that caught my eye this week (Week 39 of 2025)",
+      link: "https://www.linkedin.com/posts/oscarlt_ai-futureofwork-digitaltransformation-activity-7377586543106093056-yrhd?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
     {
       id: 22,
       date: "2025-09-24",
