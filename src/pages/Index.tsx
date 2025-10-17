@@ -13,7 +13,6 @@ import FooterSection from "@/components/FooterSection";
 import HeroMirror from "@/components/HeroMirror";
 import SkillsSection from "@/components/SkillsSection";
 import WorkExperienceSection from "@/components/WorkExperienceSection";
-import PublicationsSection from "@/components/PublicationsSection";
 import NewsletterPopup from "@/components/NewsletterPopup";
 import useVisitorTracking from "@/hooks/useVisitorTracking";
 
@@ -58,7 +57,6 @@ const Index = () => {
       <ContactSection />
       <HeroMirror />
       <SkillsSection />
-      <PublicationsSection />
       <FooterSection />
       <NewsletterPopup />
     </div>

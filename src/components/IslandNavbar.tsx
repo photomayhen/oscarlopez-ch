@@ -9,11 +9,11 @@ const IslandNavbar = () => {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#top" },
-    { label: "Experiences", href: "#experiences" },
-    { label: "Services", href: "#services" },
-    { label: "Publications", href: "#publications" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "Experiences", href: "/#experiences" },
+    { label: "Services", href: "/#services" },
+    { label: "Publications", href: "/publications" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   return (
