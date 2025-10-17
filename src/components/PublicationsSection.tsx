@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import LinkedInCarousel from "./LinkedInCarousel";
+import img20251017 from "@/assets/20251014_orchestration_02.png";
 import img20251010 from "@/assets/20251010_AInews_02.png";
 import img20251009 from "@/assets/20251009_none_02.png";
 import img20251006 from "@/assets/20251006_Newsletter_02.png";
@@ -28,6 +29,13 @@ const PublicationsSection = () => {
 
   // Publications data - sorted from newest to oldest
   const publications = [
+    {
+      id: 29,
+      date: "2025-10-17",
+      image: img20251017,
+      title: "🔍 Procurement Orchestration: What It Is and Why It Matters",
+      link: "https://www.linkedin.com/posts/oscarlt_procurement-orchestration-what-it-is-activity-7383732048886263808-UaBD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
     {
       id: 28,
       date: "2025-10-10",
