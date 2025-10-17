@@ -67,25 +67,22 @@ const FreebiesCarousel = ({ freebies }: FreebiesCarouselProps) => {
   const selectedFreebie = freebies[selectedIndex];
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-4xl mx-auto">
       {/* Main Display */}
-      <div className="relative mb-6">
-        <div className="relative aspect-[16/9] overflow-hidden rounded-lg shadow-2xl group cursor-pointer">
-          <img
-            src={selectedFreebie.image}
-            alt={selectedFreebie.title}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            onClick={handleDownload}
-          />
-          
-          {/* Hover Overlay */}
-          <div 
-            className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-            onClick={handleDownload}
-          >
-            <div className="text-center">
-              <Download className="w-16 h-16 text-white mx-auto mb-2" />
-              <span className="text-white font-body text-lg">Download PDF</span>
+      <div className="relative mb-8">
+        <div className="flex justify-center mb-4">
+          <div className="relative cursor-pointer group" onClick={handleDownload}>
+            <img
+              src={selectedFreebie.image}
+              alt={selectedFreebie.title}
+              className="h-56 w-auto object-cover rounded-lg shadow-lg transition-transform duration-200 group-hover:scale-105"
+            />
+            {/* Hover Overlay */}
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg flex items-center justify-center">
+              <div className="text-center">
+                <Download className="w-12 h-12 text-white mx-auto mb-2" />
+                <span className="text-white font-body text-sm bg-black/50 px-3 py-1 rounded">Download PDF</span>
+              </div>
             </div>
           </div>
         </div>
@@ -95,24 +92,24 @@ const FreebiesCarousel = ({ freebies }: FreebiesCarouselProps) => {
           <>
             <button
               onClick={handlePrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all duration-200 backdrop-blur-sm"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 backdrop-blur-sm"
               aria-label="Previous freebie"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-all duration-200 backdrop-blur-sm"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 backdrop-blur-sm"
               aria-label="Next freebie"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </>
         )}
 
         {/* Title Below Image */}
-        <div className="mt-4">
-          <h3 className="font-body text-xl md:text-2xl text-foreground leading-tight">
+        <div className="text-center">
+          <h3 className="font-heading text-lg md:text-xl text-foreground leading-tight max-w-2xl mx-auto">
             {selectedFreebie.title}
           </h3>
           <p className="font-body text-sm text-muted-foreground mt-1">
@@ -126,31 +123,33 @@ const FreebiesCarousel = ({ freebies }: FreebiesCarouselProps) => {
       </div>
 
       {/* Thumbnails Row */}
-      {freebies.length > 1 && (
+      <div className="relative">
         <div 
           ref={thumbnailsRef}
-          className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide scroll-smooth"
+          className="flex gap-3 overflow-x-auto scrollbar-hide pb-4"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {freebies.map((freebie, index) => (
-            <button
+            <div
               key={freebie.id}
-              onClick={() => handleThumbnailClick(index)}
-              className={`flex-shrink-0 transition-all duration-300 ${
+              className={`flex-shrink-0 cursor-pointer transition-all duration-300 ${
                 index === selectedIndex 
                   ? 'scale-110 opacity-100' 
-                  : 'scale-100 opacity-50 grayscale hover:opacity-75 hover:grayscale-0'
+                  : 'scale-100 opacity-50 hover:opacity-75'
               }`}
+              onClick={() => handleThumbnailClick(index)}
             >
               <img
                 src={freebie.image}
                 alt={freebie.title}
-                className="w-24 h-16 object-cover rounded-md shadow-md"
+                className={`h-20 w-auto object-cover rounded-md transition-all duration-300 ${
+                  index !== selectedIndex ? 'grayscale' : ''
+                }`}
               />
-            </button>
+            </div>
           ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
