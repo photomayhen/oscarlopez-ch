@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import LinkedInCarousel from "./LinkedInCarousel";
+import img20250924 from "@/assets/20250924_AIbubble02.png";
+import img20250915 from "@/assets/20250910_titans_02.png";
+import img20250913 from "@/assets/20250913_Diella_03.png";
+import img20250919 from "@/assets/20250919_AInews.png";
 import img20250912 from "@/assets/20250912.jpg";
 import img20250908 from "@/assets/20250908_funnel.png";
 import img20250907 from "@/assets/20250907_AInews.png";
@@ -18,6 +22,34 @@ const PublicationsSection = () => {
 
   // Publications data - sorted from newest to oldest
   const publications = [
+    {
+      id: 22,
+      date: "2025-09-24",
+      image: img20250924,
+      title: "🚨 Is the AI Bubble About to Burst? What It Means for You and Your Business",
+      link: "https://www.linkedin.com/posts/oscarlt_aibubble-leadership-innovation-activity-7376491850406273024-k8Oa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 21,
+      date: "2025-09-15",
+      image: img20250915,
+      title: "🚀 The Battle of the Titans: AI Browsers",
+      link: "https://www.linkedin.com/posts/oscarlt_the-battle-of-the-titans-ai-browsers-activity-7373955134327820288-6BRb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 20,
+      date: "2025-09-13",
+      image: img20250913,
+      title: "🎉 Welcome to the team Diella!",
+      link: "https://www.linkedin.com/posts/oscarlt_procurementtech-artificialintelligence-futureofwork-activity-7372864190790737921-HlUH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 19,
+      date: "2025-09-12",
+      image: img20250919,
+      title: "🚨 The AI News which caught my Eye this Week (Week 37 of 2025)",
+      link: "https://www.linkedin.com/posts/oscarlt_ai-technology-innovation-activity-7372593387989860352-Df6e?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
     {
       id: 18,
       date: "2025-09-12",
