@@ -153,18 +153,6 @@ const PublicationsSection = () => {
   return (
     <section id="publications" className="pt-4 pb-6 bg-background px-6 lg:px-12">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center">
-          <div 
-            className={`transition-all duration-700 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-          >
-            <h2 className="font-body text-sm md:text-base text-muted-foreground uppercase tracking-wider mb-6">
-              Link to my last publications
-            </h2>
-          </div>
-        </div>
-        
         {/* LinkedIn Carousel - Latest 8 */}
         <div 
           className={`transition-all duration-700 transform delay-200 ${

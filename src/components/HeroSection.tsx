@@ -30,9 +30,17 @@ const HeroSection = () => {
           </h1>
           
           {/* Subtitle */}
-          <p className="font-body text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl">
+          <p className="font-body text-lg md:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-2xl mb-6">
             Procurement, Vendor Management, Contract Negotiation & Contract Management
           </p>
+          
+          {/* Publications Link */}
+          <a 
+            href="/publications"
+            className="font-body text-sm md:text-base text-white/70 hover:text-white uppercase tracking-wider transition-colors duration-200"
+          >
+            Link to my last publications
+          </a>
         </div>
       </div>
     </section>;
