@@ -20,7 +20,7 @@ const FooterSection = () => {
             </p>
             <div className="space-y-2">
               <p className="font-body text-base text-muted-foreground">
-                oscarlt@me.com
+                contact@oscarlopez.ch
               </p>
               <p className="font-body text-base text-muted-foreground">
                 +41 77 266 34 48
