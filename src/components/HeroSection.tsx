@@ -8,7 +8,8 @@ const HeroSection = () => {
   return <section id="top" className="min-h-screen bg-background flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
       <IslandNavbar />
       {/* Background Video Layer */}
-      <video autoPlay muted loop playsInline controls={false} className="absolute inset-0 w-full h-full object-cover mix-blend-color-dodge rounded-sm">
+      <div className="absolute inset-0 bg-muted/20" />
+      <video autoPlay muted loop playsInline controls={false} className="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-40 rounded-sm">
         <source src="https://res.cloudinary.com/dqd4dvem7/video/upload/v1753690853/arc_n2w6lv.mp4" type="video/mp4" />
       </video>
       
