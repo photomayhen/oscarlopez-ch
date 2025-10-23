@@ -46,7 +46,7 @@ const HeroSection = () => {
             href="/publications#freebies"
             className="font-body text-sm md:text-base text-white/70 hover:text-white uppercase tracking-wider transition-colors duration-200"
           >
-            Thanks for visiting my page! I always have a small gift for you. Visit the "freebies" area
+            Thanks for visiting my page!<br />I always have a small gift for you. Visit the "freebies" area
           </a>
         </div>
       </div>
