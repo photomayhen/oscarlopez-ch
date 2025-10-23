@@ -16,7 +16,7 @@ const HeroSection = () => {
         className="absolute inset-0 w-full h-full object-cover mix-blend-lighten"
         style={{ mixBlendMode: 'lighten' }}
       >
-        <source src="/videos/arc.mp4" type="video/mp4" />
+        <source src="/videos/arc2.mp4" type="video/mp4" />
       </video>
       
       <div className="max-w-4xl w-full flex flex-col items-center text-center relative z-10">
