@@ -18,7 +18,7 @@ const IslandNavbar = () => {
 
   return (
     <nav
-      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-700 ${
+      className={`fixed top-2 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-700 ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'
       }`}
     >
