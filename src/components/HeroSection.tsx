@@ -41,13 +41,21 @@ const HeroSection = () => {
             Procurement, Vendor Management, Contract Negotiation & Contract Management
           </p>
           
-          {/* Publications Link */}
-          <a 
-            href="/publications#freebies"
-            className="font-body text-sm md:text-base text-white/70 hover:text-white uppercase tracking-wider transition-colors duration-200"
-          >
-            Thanks for visiting my page!<br />I always have a small gift for you. Visit the "freebies" area
-          </a>
+          {/* Two Column Messages */}
+          <div className="grid grid-cols-2 gap-8 w-full max-w-3xl mx-auto">
+            {/* Left Column - Publications Link */}
+            <a 
+              href="/publications#freebies"
+              className="font-body text-sm md:text-base text-white/70 hover:text-white uppercase tracking-wider transition-colors duration-200 flex items-center justify-center text-center"
+            >
+              Thanks for visiting my page!<br />I always have a small gift for you. Visit the "freebies" area
+            </a>
+            
+            {/* Right Column - AI Agents Message */}
+            <div className="font-body text-sm md:text-base text-white/70 uppercase tracking-wider flex items-center justify-center text-center">
+              AI Agents/Applications click or scroll down
+            </div>
+          </div>
         </div>
       </div>
     </section>;
