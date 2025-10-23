@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import LinkedInCarousel from "./LinkedInCarousel";
+import img20251023 from "@/assets/20251022_USTrade.mp4";
+import img20251021 from "@/assets/20251017_AIjargon_02.png";
+import img20251017b from "@/assets/20251017_AInews_02.png";
 import img20251017 from "@/assets/20251014_orchestration_02.png";
 import img20251010 from "@/assets/20251010_AInews_02.png";
 import img20251009 from "@/assets/20251009_none_02.png";
@@ -29,6 +32,27 @@ const PublicationsSection = () => {
 
   // Publications data - sorted from newest to oldest
   const publications = [
+    {
+      id: 32,
+      date: "2025-10-23",
+      video: img20251023,
+      title: "A Turning Point in U.S.–China Trade 🇺🇸🇨🇳",
+      link: "https://www.linkedin.com/posts/oscarlt_trade-economy-supplychain-activity-7386997314961444864-QP_M?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 31,
+      date: "2025-10-21",
+      image: img20251021,
+      title: "Navigating Techno Waters",
+      link: "https://www.linkedin.com/posts/oscarlt_navigating-techno-waters-activity-7385974313859956736-l0re?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
+    {
+      id: 30,
+      date: "2025-10-17",
+      image: img20251017b,
+      title: "🚨 The 3 AI news that caught my eye this week (Week 42 of 2025)",
+      link: "https://www.linkedin.com/posts/oscarlt_ai-futureofwork-digitaltransformation-activity-7385204253109440512-HFPp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAAmqzsBsgOvuXXBr5EH_hhqHx_lYJ6wmdk"
+    },
     {
       id: 29,
       date: "2025-10-17",

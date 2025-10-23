@@ -4,7 +4,8 @@ import { Button } from './ui/button';
 
 interface Publication {
   id: number;
-  image: string;
+  image?: string;
+  video?: string;
   title: string;
   link: string;
 }
@@ -69,17 +70,28 @@ const LinkedInCarousel: React.FC<LinkedInCarouselProps> = ({ publications }) => 
     <div className="w-full max-w-4xl mx-auto">
       {/* Main Display Area */}
       <div className="relative mb-8">
-        {/* Large Image */}
+        {/* Large Image or Video */}
         <div className="flex justify-center mb-4">
           <div 
             className="relative cursor-pointer group"
             onClick={handleMainImageClick}
           >
-            <img
-              src={publications[selectedIndex].image}
-              alt={publications[selectedIndex].title}
-              className="h-56 w-auto object-cover rounded-lg shadow-lg transition-transform duration-200 group-hover:scale-105"
-            />
+            {publications[selectedIndex].video ? (
+              <video
+                src={publications[selectedIndex].video}
+                className="h-56 w-auto object-cover rounded-lg shadow-lg transition-transform duration-200 group-hover:scale-105"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              <img
+                src={publications[selectedIndex].image}
+                alt={publications[selectedIndex].title}
+                className="h-56 w-auto object-cover rounded-lg shadow-lg transition-transform duration-200 group-hover:scale-105"
+              />
+            )}
             {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg flex items-center justify-center">
               <span className="text-white text-sm font-body bg-black/50 px-3 py-1 rounded">
@@ -135,13 +147,25 @@ const LinkedInCarousel: React.FC<LinkedInCarouselProps> = ({ publications }) => 
               }`}
               onClick={() => handleThumbnailClick(index)}
             >
-              <img
-                src={publication.image}
-                alt={publication.title}
-                className={`h-20 w-auto object-cover rounded-md transition-all duration-300 ${
-                  index !== selectedIndex ? 'grayscale' : ''
-                }`}
-              />
+              {publication.video ? (
+                <video
+                  src={publication.video}
+                  className={`h-20 w-auto object-cover rounded-md transition-all duration-300 ${
+                    index !== selectedIndex ? 'grayscale' : ''
+                  }`}
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
+                <img
+                  src={publication.image}
+                  alt={publication.title}
+                  className={`h-20 w-auto object-cover rounded-md transition-all duration-300 ${
+                    index !== selectedIndex ? 'grayscale' : ''
+                  }`}
+                />
+              )}
             </div>
           ))}
         </div>
