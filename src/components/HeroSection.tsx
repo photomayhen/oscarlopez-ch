@@ -13,7 +13,7 @@ const HeroSection = () => {
         muted 
         loop 
         playsInline 
-        className="absolute inset-0 w-full h-full object-contain mix-blend-lighten"
+        className="absolute inset-0 w-full h-full object-contain mix-blend-lighten scale-y-[-1] scale-x-[-1]"
         style={{ mixBlendMode: 'lighten' }}
       >
         <source src="/videos/arc2.mp4" type="video/mp4" />

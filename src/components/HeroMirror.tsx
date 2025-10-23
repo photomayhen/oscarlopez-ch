@@ -8,10 +8,10 @@ const HeroMirror: React.FC = () => {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover mix-blend-lighten scale-y-[-1] scale-x-[-1]"
+        className="absolute inset-0 w-full h-full object-contain mix-blend-lighten"
         style={{ mixBlendMode: 'lighten' }}
       >
-        <source src="/videos/arc.mp4" type="video/mp4" />
+        <source src="/videos/arc2.mp4" type="video/mp4" />
       </video>
     </section>
   );
