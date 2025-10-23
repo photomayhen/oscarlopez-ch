@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import PublicationsSection from "@/components/PublicationsSection";
+import AgenticApplicationsSection from "@/components/AgenticApplicationsSection";
 import FreebiesSection from "@/components/FreebiesSection";
 import FooterSection from "@/components/FooterSection";
 import IslandNavbar from "@/components/IslandNavbar";
@@ -41,6 +42,7 @@ const Publications = () => {
       </div>
 
       <PublicationsSection />
+      <AgenticApplicationsSection />
       <FreebiesSection />
       <FooterSection />
     </div>
