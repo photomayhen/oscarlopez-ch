@@ -13,12 +13,10 @@ const HeroSection = () => {
         muted 
         loop 
         playsInline 
-        controls={false}
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover mix-blend-lighten opacity-100"
+        className="absolute inset-0 w-full h-full object-cover mix-blend-lighten"
+        style={{ mixBlendMode: 'lighten' }}
       >
         <source src="https://res.cloudinary.com/dqd4dvem7/video/upload/v1753690853/arc_n2w6lv.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
       </video>
       
       <div className="max-w-4xl w-full flex flex-col items-center text-center relative z-10">
