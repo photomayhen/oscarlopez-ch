@@ -5,10 +5,9 @@ const HeroSection = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="top" className="min-h-screen bg-background flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
+  return <section id="top" className="min-h-screen bg-black flex items-center justify-center px-6 lg:px-12 relative overflow-hidden">
       <IslandNavbar />
       {/* Background Video Layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
       <video 
         autoPlay 
         muted 
@@ -16,7 +15,8 @@ const HeroSection = () => {
         playsInline 
         controls={false}
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover opacity-80 rounded-sm"
+        style={{ opacity: 1 }}
+        className="absolute inset-0 w-full h-full object-cover mix-blend-lighten rounded-sm"
       >
         <source src="https://res.cloudinary.com/dqd4dvem7/video/upload/v1753690853/arc_n2w6lv.mp4" type="video/mp4" />
         Your browser does not support the video tag.
