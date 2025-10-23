@@ -13,9 +13,20 @@ const AgenticApplicationsSection = () => {
   return (
     <section id="agentic-applications" className="pt-12 pb-12 bg-background px-6 lg:px-12">
       <div className="max-w-5xl mx-auto">
-        {/* Legal Documents Links */}
+        {/* Section Title */}
         <div 
           className={`transition-all duration-700 transform delay-100 mb-8 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
+          <h2 className="font-body text-3xl md:text-4xl text-foreground text-center mb-3">
+            Agentic/Applications
+          </h2>
+        </div>
+
+        {/* Legal Documents Links */}
+        <div 
+          className={`transition-all duration-700 transform delay-200 mb-8 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
@@ -35,17 +46,6 @@ const AgenticApplicationsSection = () => {
               <span className="font-body text-foreground">Privacy Policy</span>
             </Link>
           </div>
-        </div>
-
-        {/* Section Title */}
-        <div 
-          className={`transition-all duration-700 transform delay-200 mb-8 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
-        >
-          <h2 className="font-body text-3xl md:text-4xl text-foreground text-center mb-3">
-            Agentic/Applications
-          </h2>
         </div>
 
         {/* Content will be added here */}

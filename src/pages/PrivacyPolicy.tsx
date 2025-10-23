@@ -1,9 +1,12 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import IslandNavbar from "@/components/IslandNavbar";
 import FooterSection from "@/components/FooterSection";
 import useVisitorTracking from "@/hooks/useVisitorTracking";
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
   useVisitorTracking();
 
   useEffect(() => {
@@ -31,6 +34,14 @@ const PrivacyPolicy = () => {
       <IslandNavbar />
       
       <main className="container mx-auto px-6 lg:px-12 py-24 max-w-4xl">
+        <button
+          onClick={() => navigate(-1)}
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to previous page</span>
+        </button>
+        
         <h1 className="font-body text-4xl md:text-5xl text-foreground mb-2">
           Privacy Policy
         </h1>
